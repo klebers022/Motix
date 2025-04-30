@@ -1,0 +1,10 @@
+📱 Mobile Application Development
+Protótipo funcional com React Native + Expo.
+
+5 telas com navegação (React Navigation).
+
+Formulário com useState para cadastrar motos.
+
+Uso de AsyncStorage para salvar dados localmente.
+
+Protótipo visual navegável com dados mockados.
