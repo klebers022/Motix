@@ -1,5 +1,5 @@
 ☕ Java Advanced
-API Rest com Spring Boot e banco Oracle.
+API Restfull com Spring e utilizando banco de Dados da Oracle.
 
 CRUD completo para entidades como Moto e Setor.
 
