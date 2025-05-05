@@ -1,6 +1,8 @@
 package br.com.motix.repositories;
 
 import br.com.motix.models.Motorcycle;
+import br.com.motix.models.enums.BikeType;
+import br.com.motix.models.enums.Sectors;
 import jakarta.persistence.QueryHint;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.QueryHints;
@@ -14,11 +16,11 @@ public interface MotorcycleRepository extends JpaRepository<Motorcycle, UUID> {
     @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))  //<-----------------------------------
     List<Motorcycle> findAll();
 
-    List<Motorcycle> findAllBySector(String sector);
+    List<Motorcycle> findAllBySector(Sectors sector);
 
-    List<Motorcycle> findAllByType(String type);
+    List<Motorcycle> findAllByType(BikeType type);
 
-    List<Motorcycle> findAllBikesWithNoPlate();
+    List<Motorcycle> findAllByIsPlateReadable(boolean status);
 
     Motorcycle findByPlate(String plate);
 }
