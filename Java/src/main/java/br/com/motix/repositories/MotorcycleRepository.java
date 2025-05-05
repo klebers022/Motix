@@ -11,12 +11,14 @@ import java.util.UUID;
 public interface MotorcycleRepository extends JpaRepository<Motorcycle, UUID> {
 
     @Override
-    @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))
+    @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))  //<-----------------------------------
     List<Motorcycle> findAll();
 
     List<Motorcycle> findAllBySector(String sector);
 
     List<Motorcycle> findAllByType(String type);
+
+    List<Motorcycle> findAllBikesWithNoPlate();
 
     Motorcycle findByPlate(String plate);
 }

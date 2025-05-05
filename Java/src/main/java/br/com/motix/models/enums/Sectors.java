@@ -1,6 +1,4 @@
-package br.com.motix.models;
-
-import org.checkerframework.checker.units.qual.A;
+package br.com.motix.models.enums;
 
 public enum Sectors {
 

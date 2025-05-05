@@ -1,4 +1,7 @@
 package br.com.motix.models;
+import br.com.motix.models.enums.BikeType;
+import br.com.motix.models.enums.Sectors;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import jakarta.persistence.Table;
@@ -26,16 +29,20 @@ public class Motorcycle {
     private Sectors sector;
 
     @Getter @Setter
+    private String position;
+
+    @Getter @Setter @Nullable //<---------------------------------------------------
     private String plate;
 
     @Getter @Setter
-    private String model;
-
-    @Getter @Setter
-    private String brand;
+    private boolean isPlateReadable;
 
     @Getter @Setter
     private BikeType type;
+
+    private void readPlate() {   //<------------------------------------------------
+        isPlateReadable = (plate != null);
+    }
 
     @Override
     public boolean equals(Object o) {

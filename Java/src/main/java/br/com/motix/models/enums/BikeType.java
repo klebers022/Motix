@@ -1,4 +1,4 @@
-package br.com.motix.models;
+package br.com.motix.models.enums;
 
 public enum BikeType {
 
