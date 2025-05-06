@@ -12,10 +12,6 @@ import java.util.UUID;
 
 public interface MotorcycleRepository extends JpaRepository<Motorcycle, UUID> {
 
-    @Override
-    @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))  //<-----------------------------------
-    List<Motorcycle> findAll();
-
     List<Motorcycle> findAllBySector(Sectors sector);
 
     List<Motorcycle> findAllByType(BikeType type);

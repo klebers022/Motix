@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -33,6 +34,8 @@ public class User {
 
     @Getter @Setter
     private String name;
+
+    private List<Post> posts;
 
     @Override
     public boolean equals(Object o) {

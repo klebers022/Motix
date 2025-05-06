@@ -10,9 +10,6 @@ import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
 
-   @Override
-   List<User> findAll();
-
    User findAllByRm(String rm);
 
    User findByName(String name);
