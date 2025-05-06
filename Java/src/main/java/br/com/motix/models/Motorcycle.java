@@ -6,6 +6,7 @@ import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -32,7 +33,7 @@ public class Motorcycle {
     @Getter @Setter
     private String position;
 
-    @Getter @Setter @Nullable //<---------------------------------------------------
+    @Getter @Setter @NotBlank //<---------------------------------------------------
     private String plate;
 
     @Getter @Setter
