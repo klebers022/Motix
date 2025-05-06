@@ -2,10 +2,12 @@ package br.com.motix.services;
 
 import br.com.motix.models.User;
 import br.com.motix.repositories.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public class UserServiceImp implements UserService{
 
     UserRepository userRepository;

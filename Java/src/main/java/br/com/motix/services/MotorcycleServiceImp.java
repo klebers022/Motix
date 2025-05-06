@@ -2,12 +2,14 @@ package br.com.motix.services;
 
 import br.com.motix.models.Motorcycle;
 import br.com.motix.repositories.MotorcycleRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.Optional;
 
+@Service
 public class MotorcycleServiceImp implements MotorcycleService {
 
     private MotorcycleRepository bikeRepository;

@@ -1,4 +1,5 @@
 package br.com.motix.models;
+
 import br.com.motix.models.enums.BikeType;
 import br.com.motix.models.enums.Sectors;
 import jakarta.annotation.Nullable;

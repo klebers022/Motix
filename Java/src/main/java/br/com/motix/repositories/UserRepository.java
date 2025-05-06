@@ -1,7 +1,9 @@
 package br.com.motix.repositories;
 
 import br.com.motix.models.User;
+import jakarta.persistence.QueryHint;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.QueryHints;
 
 import java.util.List;
 import java.util.UUID;
