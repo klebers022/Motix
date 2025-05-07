@@ -8297,3 +8297,189 @@ java.lang.NullPointerException: Cannot invoke "br.com.motix.repositories.Motorcy
     drop table users cascade constraints
 2025-05-05T21:16:53.475-03:00  INFO 14540 --- [Motix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown initiated...
 2025-05-05T21:16:53.781-03:00  INFO 14540 --- [Motix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown completed.
+2025-05-07T11:12:20.011-03:00  INFO 5684 --- [Motix] [restartedMain] br.com.motix.MotixApplication            : Starting MotixApplication using Java 18.0.2.1 with PID 5684 (C:\Users\labsfiap\Desktop\Motix\Java\target\classes started by labsfiap in C:\Users\labsfiap\Desktop\Motix\Java)
+2025-05-07T11:12:20.012-03:00  INFO 5684 --- [Motix] [restartedMain] br.com.motix.MotixApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-05-07T11:12:20.037-03:00  INFO 5684 --- [Motix] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\labsfiap\.m2\repository\com\oracle\database\jdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/labsfiap/.m2/repository/com/oracle/database/jdbc/ojdbc8/19.3.0.0/oraclepki.jar
+2025-05-07T11:12:20.037-03:00  INFO 5684 --- [Motix] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-07T11:12:20.037-03:00  INFO 5684 --- [Motix] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-07T11:12:20.476-03:00  INFO 5684 --- [Motix] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07T11:12:20.511-03:00  INFO 5684 --- [Motix] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 2 JPA repository interfaces.
+2025-05-07T11:12:20.843-03:00  INFO 5684 --- [Motix] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-07T11:12:20.851-03:00  INFO 5684 --- [Motix] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-07T11:12:20.851-03:00  INFO 5684 --- [Motix] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-07T11:12:20.878-03:00  INFO 5684 --- [Motix] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-07T11:12:20.879-03:00  INFO 5684 --- [Motix] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 841 ms
+2025-05-07T11:12:21.015-03:00  INFO 5684 --- [Motix] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07T11:12:21.044-03:00  INFO 5684 --- [Motix] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-07T11:12:21.059-03:00  INFO 5684 --- [Motix] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-07T11:12:21.219-03:00  INFO 5684 --- [Motix] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07T11:12:21.236-03:00  INFO 5684 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Starting...
+2025-05-07T11:12:21.945-03:00  INFO 5684 --- [Motix] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : SpringBootHikariCP - Added connection oracle.jdbc.driver.T4CConnection@33933dee
+2025-05-07T11:12:21.946-03:00  INFO 5684 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Start completed.
+2025-05-07T11:12:22.043-03:00  INFO 5684 --- [Motix] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (SpringBootHikariCP)']
+	Database driver: undefined/unknown
+	Database version: 19.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07T11:12:22.120-03:00 ERROR 5684 --- [Motix] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Basic collection has element type 'br.com.motix.models.Post' which is not a known basic type (attribute is not annotated '@ElementCollection', '@OneToMany', or '@ManyToMany')
+2025-05-07T11:12:22.121-03:00  WARN 5684 --- [Motix] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Basic collection has element type 'br.com.motix.models.Post' which is not a known basic type (attribute is not annotated '@ElementCollection', '@OneToMany', or '@ManyToMany')
+2025-05-07T11:12:22.121-03:00  INFO 5684 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown initiated...
+2025-05-07T11:12:22.202-03:00  INFO 5684 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown completed.
+2025-05-07T11:12:22.204-03:00  INFO 5684 --- [Motix] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-05-07T11:12:22.213-03:00  INFO 5684 --- [Motix] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-07T11:12:22.223-03:00 ERROR 5684 --- [Motix] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Basic collection has element type 'br.com.motix.models.Post' which is not a known basic type (attribute is not annotated '@ElementCollection', '@OneToMany', or '@ManyToMany')
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1818) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351) ~[spring-boot-3.4.5.jar:3.4.5]
+	at br.com.motix.MotixApplication.main(MotixApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.5.jar:3.4.5]
+Caused by: org.hibernate.MappingException: Basic collection has element type 'br.com.motix.models.Post' which is not a known basic type (attribute is not annotated '@ElementCollection', '@OneToMany', or '@ManyToMany')
+	at org.hibernate.type.descriptor.java.spi.BasicCollectionJavaType.getRecommendedJdbcType(BasicCollectionJavaType.java:72) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.boot.model.process.internal.InferredBasicValueResolver.from(InferredBasicValueResolver.java:195) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.mapping.BasicValue.resolution(BasicValue.java:664) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.mapping.BasicValue.buildResolution(BasicValue.java:461) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.mapping.BasicValue.resolve(BasicValue.java:351) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.mapping.BasicValue.resolve(BasicValue.java:341) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.lambda$processValueResolvers$6(InFlightMetadataCollectorImpl.java:1827) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1682) ~[na:na]
+	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1660) ~[na:na]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processValueResolvers(InFlightMetadataCollectorImpl.java:1826) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1812) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:334) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1865) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1814) ~[spring-beans-6.2.6.jar:6.2.6]
+	... 18 common frames omitted
+
+2025-05-07T11:14:56.051-03:00  INFO 19324 --- [Motix] [restartedMain] br.com.motix.MotixApplication            : Starting MotixApplication using Java 18.0.2.1 with PID 19324 (C:\Users\labsfiap\Desktop\Motix\Java\target\classes started by labsfiap in C:\Users\labsfiap\Desktop\Motix\Java)
+2025-05-07T11:14:56.054-03:00  INFO 19324 --- [Motix] [restartedMain] br.com.motix.MotixApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-05-07T11:14:56.080-03:00  INFO 19324 --- [Motix] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\labsfiap\.m2\repository\com\oracle\database\jdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/labsfiap/.m2/repository/com/oracle/database/jdbc/ojdbc8/19.3.0.0/oraclepki.jar
+2025-05-07T11:14:56.080-03:00  INFO 19324 --- [Motix] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-07T11:14:56.080-03:00  INFO 19324 --- [Motix] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-07T11:14:56.534-03:00  INFO 19324 --- [Motix] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07T11:14:56.567-03:00  INFO 19324 --- [Motix] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 2 JPA repository interfaces.
+2025-05-07T11:14:56.908-03:00  INFO 19324 --- [Motix] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-07T11:14:56.916-03:00  INFO 19324 --- [Motix] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-07T11:14:56.916-03:00  INFO 19324 --- [Motix] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-07T11:14:56.943-03:00  INFO 19324 --- [Motix] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-07T11:14:56.943-03:00  INFO 19324 --- [Motix] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 863 ms
+2025-05-07T11:14:57.095-03:00  INFO 19324 --- [Motix] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07T11:14:57.124-03:00  INFO 19324 --- [Motix] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-07T11:14:57.141-03:00  INFO 19324 --- [Motix] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-07T11:14:57.302-03:00  INFO 19324 --- [Motix] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07T11:14:57.317-03:00  INFO 19324 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Starting...
+2025-05-07T11:14:58.214-03:00  INFO 19324 --- [Motix] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : SpringBootHikariCP - Added connection oracle.jdbc.driver.T4CConnection@663320df
+2025-05-07T11:14:58.215-03:00  INFO 19324 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Start completed.
+2025-05-07T11:14:58.544-03:00  INFO 19324 --- [Motix] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (SpringBootHikariCP)']
+	Database driver: undefined/unknown
+	Database version: 19.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07T11:14:58.973-03:00  INFO 19324 --- [Motix] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07T11:15:05.123-03:00 DEBUG 19324 --- [Motix] [restartedMain] org.hibernate.SQL                        : 
+    create table post (
+        id raw(16) not null,
+        user_id raw(16),
+        primary key (id)
+    )
+2025-05-07T11:15:05.202-03:00 DEBUG 19324 --- [Motix] [restartedMain] org.hibernate.SQL                        : 
+    alter table post 
+       add constraint FK7ky67sgi7k0ayf22652f7763r 
+       foreign key (user_id) 
+       references users
+2025-05-07T11:15:05.456-03:00  INFO 19324 --- [Motix] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07T11:15:05.688-03:00  WARN 19324 --- [Motix] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07T11:15:05.974-03:00  INFO 19324 --- [Motix] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-05-07T11:15:05.983-03:00  WARN 19324 --- [Motix] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-05-07T11:15:05.984-03:00  INFO 19324 --- [Motix] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07T11:15:05.986-03:00  INFO 19324 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown initiated...
+2025-05-07T11:15:06.235-03:00  INFO 19324 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown completed.
+2025-05-07T11:15:06.242-03:00  INFO 19324 --- [Motix] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-07T11:15:06.252-03:00 ERROR 19324 --- [Motix] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-05-07T11:15:17.118-03:00  INFO 16748 --- [Motix] [restartedMain] br.com.motix.MotixApplication            : Starting MotixApplication using Java 18.0.2.1 with PID 16748 (C:\Users\labsfiap\Desktop\Motix\Java\target\classes started by labsfiap in C:\Users\labsfiap\Desktop\Motix\Java)
+2025-05-07T11:15:17.120-03:00  INFO 16748 --- [Motix] [restartedMain] br.com.motix.MotixApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-05-07T11:15:17.143-03:00  INFO 16748 --- [Motix] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\labsfiap\.m2\repository\com\oracle\database\jdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/labsfiap/.m2/repository/com/oracle/database/jdbc/ojdbc8/19.3.0.0/oraclepki.jar
+2025-05-07T11:15:17.143-03:00  INFO 16748 --- [Motix] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-07T11:15:17.143-03:00  INFO 16748 --- [Motix] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-07T11:15:17.582-03:00  INFO 16748 --- [Motix] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07T11:15:17.622-03:00  INFO 16748 --- [Motix] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 2 JPA repository interfaces.
+2025-05-07T11:15:17.976-03:00  INFO 16748 --- [Motix] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-07T11:15:17.986-03:00  INFO 16748 --- [Motix] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-07T11:15:17.986-03:00  INFO 16748 --- [Motix] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-07T11:15:18.011-03:00  INFO 16748 --- [Motix] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-07T11:15:18.012-03:00  INFO 16748 --- [Motix] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 869 ms
+2025-05-07T11:15:18.167-03:00  INFO 16748 --- [Motix] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07T11:15:18.196-03:00  INFO 16748 --- [Motix] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-07T11:15:18.211-03:00  INFO 16748 --- [Motix] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-07T11:15:18.363-03:00  INFO 16748 --- [Motix] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07T11:15:18.380-03:00  INFO 16748 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Starting...
+2025-05-07T11:15:19.092-03:00  INFO 16748 --- [Motix] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : SpringBootHikariCP - Added connection oracle.jdbc.driver.T4CConnection@f2e484b
+2025-05-07T11:15:19.094-03:00  INFO 16748 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Start completed.
+2025-05-07T11:15:19.654-03:00  INFO 16748 --- [Motix] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (SpringBootHikariCP)']
+	Database driver: undefined/unknown
+	Database version: 19.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07T11:15:20.091-03:00  INFO 16748 --- [Motix] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07T11:15:27.917-03:00  INFO 16748 --- [Motix] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07T11:15:28.163-03:00  WARN 16748 --- [Motix] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07T11:15:28.507-03:00  INFO 16748 --- [Motix] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-05-07T11:15:28.526-03:00  INFO 16748 --- [Motix] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-07T11:15:28.526-03:00  INFO 16748 --- [Motix] [restartedMain] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-07T11:15:28.527-03:00  INFO 16748 --- [Motix] [restartedMain] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-07T11:15:28.527-03:00  INFO 16748 --- [Motix] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-07T11:15:28.532-03:00  INFO 16748 --- [Motix] [restartedMain] br.com.motix.MotixApplication            : Started MotixApplication in 11.655 seconds (process running for 11.866)
+2025-05-07T11:15:43.709-03:00  INFO 16748 --- [Motix] [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 171 ms
+2025-05-07T11:16:02.424-03:00  INFO 16748 --- [Motix] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07T11:16:02.753-03:00  INFO 16748 --- [Motix] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-07T11:16:02.756-03:00  INFO 16748 --- [Motix] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07T11:16:02.758-03:00  INFO 16748 --- [Motix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown initiated...
+2025-05-07T11:16:03.002-03:00  INFO 16748 --- [Motix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown completed.

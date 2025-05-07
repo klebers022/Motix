@@ -1,8 +1,6 @@
 package br.com.motix.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
@@ -12,9 +10,12 @@ import java.util.UUID;
 @Entity
 @EqualsAndHashCode(of = "id")
 @Table(name = "POST")
-@
 public class Post {
 
     @Id
     private UUID id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

@@ -35,6 +35,7 @@ public class User {
     @Getter @Setter
     private String name;
 
+    @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
     @Override
