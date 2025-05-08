@@ -15,4 +15,6 @@ public interface MotorcycleService {
     Motorcycle findByPlate(String plate);
 
     Motorcycle updatePlate(UUID id, String newPlate); //<-----------------------
+
+    List<Motorcycle> findAllReadPlatesFalse();
 }

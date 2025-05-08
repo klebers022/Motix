@@ -41,4 +41,9 @@ public class MotorcycleServiceImp implements MotorcycleService {
         }
         return null;
     }
+
+    @Override
+    public List<Motorcycle> findAllReadPlatesFalse() {
+        return bikeRepository.findAllByIsPlateReadableIsFalse();
+    }
 }

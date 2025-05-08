@@ -24,4 +24,8 @@ public class MotorcycleController {
         return motorcycleService.findAll();
     }
 
+    @GetMapping("/plate-error")
+    public List<Motorcycle> findAllPlateErrors() {
+        return motorcycleService.findAllReadPlatesFalse();
+    }
 }

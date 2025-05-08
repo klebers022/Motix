@@ -16,7 +16,7 @@ public interface MotorcycleRepository extends JpaRepository<Motorcycle, UUID> {
 
     List<Motorcycle> findAllByType(BikeType type);
 
-    List<Motorcycle> findAllByIsPlateReadable(boolean status); //<------------------------------------------
+    List<Motorcycle> findAllByIsPlateReadableIsFalse(); //<------------------------------------------
 
     Motorcycle findByPlate(String plate);
 }

@@ -1,5 +1,6 @@
 package br.com.motix.repositories;
 
+import br.com.motix.models.Motorcycle;
 import br.com.motix.models.User;
 import jakarta.persistence.QueryHint;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,4 +14,5 @@ public interface UserRepository extends JpaRepository<User, UUID> {
    User findAllByRm(String rm);
 
    User findByName(String name);
+
 }
