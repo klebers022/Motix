@@ -6,6 +6,7 @@ import br.com.motix.models.User;
 import java.util.List;
 import java.util.UUID;
 
+
 public interface UserService {
 
     //A ideia é que a api seja usada por funcionarios logo eles nao devem poder fazer alteracoes em nenhum usuario
@@ -18,6 +19,13 @@ public interface UserService {
 
     User findByRm(String rm);
 
-    User findByName(String name);
+    List<User> findByName(String name);
 
+    User postUser(User user);
+
+    User updateUser(User user);
+
+    void deleteUserById(UUID id);
+
+    void deleteUserByRm(String rm);
 }

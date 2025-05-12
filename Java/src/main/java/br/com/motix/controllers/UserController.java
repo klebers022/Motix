@@ -3,13 +3,11 @@ package br.com.motix.controllers;
 import br.com.motix.models.User;
 import br.com.motix.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -22,28 +20,100 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
     @Operation(summary = "Listar todos os usuários",
-        responses = {
-             @ApiResponse(responseCode = "200", description = "Usuários listados com sucesso")
-    })
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Usuários listados com sucesso")
+            }
+    )
+    @GetMapping
     public List<User> findAll() {
         return userService.findAll();
     }
 
-    @GetMapping("/{id}")
-    public User findById(@PathVariable UUID id){
+    @Operation(summary = "Buscar usuário por ID",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Usuário encontrado"),
+                    @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
+            }
+    )
+    @GetMapping("/{id:[0-9a-fA-F\\-]{36}}")
+    public User findById(
+            @Parameter(description = "ID do usuário", required = true)
+            @PathVariable UUID id) {
         return userService.findById(id);
     }
 
-    @GetMapping("/rm{rm}")
-    public User findByRm(@PathVariable String rm){
+    @Operation(summary = "Buscar usuário por RM",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Usuário encontrado"),
+                    @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
+            }
+    )
+    @GetMapping("/rm/{rm}")
+    public User findByRm(
+            @Parameter(description = "RM do usuário", required = true)
+            @PathVariable String rm) {
         return userService.findByRm(rm);
     }
 
+    @Operation(summary = "Buscar usuários por nome",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Usuários encontrados")
+            }
+    )
     @GetMapping("/{name}")
-    public User findByName(@PathVariable String name){
-        return userService.findByRm(name);
+    public List<User> findByName(
+            @Parameter(description = "Nome do usuário", required = true)
+            @PathVariable String name) {
+        return userService.findByName(name);
     }
 
+    @Operation(summary = "Atualizar usuário por ID",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Usuário atualizado com sucesso"),
+                    @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
+            }
+    )
+    @PutMapping
+    public User updateUser(
+            @Parameter(description = "ID do usuário", required = true)
+            @RequestBody User user) {
+        return userService.updateUser(user);
+    }
+
+    @Operation(summary = "Cadastrar novo usuário",
+            responses = {
+                    @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso")
+            }
+    )
+    @PostMapping
+    public User postUser(@RequestBody User user) {
+        return userService.postUser(user);
+    }
+
+    @Operation(summary = "Deletar usuário por ID",
+            responses = {
+                    @ApiResponse(responseCode = "204", description = "Usuário deletado com sucesso"),
+                    @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
+            }
+    )
+    @DeleteMapping("/{id}")
+    public void deleteUserById(
+            @Parameter(description = "ID do usuário", required = true)
+            @PathVariable UUID id) {
+        userService.deleteUserById(id);
+    }
+
+    @Operation(summary = "Deletar usuário por RM",
+            responses = {
+                    @ApiResponse(responseCode = "204", description = "Usuário deletado com sucesso"),
+                    @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
+            }
+    )
+    @DeleteMapping("/rm/{rm}")
+    public void deleteUserByRm(
+            @Parameter(description = "RM do usuário", required = true)
+            @PathVariable String rm) {
+        userService.deleteUserByRm(rm);
+    }
 }

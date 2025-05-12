@@ -30,7 +30,31 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public User findByName(String name) {
+    public List<User> findByName(String name) {
         return userRepository.findByName(name);
+    }
+
+    @Override
+    public User postUser(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User updateUser(User user) {
+        return userRepository.existsById(user.getId()) || userRepository.existsByRm(user.getRm())  ? userRepository.save(user) : null;
+    }
+
+    @Override
+    public void deleteUserById(UUID id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+        } else throw new RuntimeException("User with ID: " + id + " not found.");
+    }
+
+    @Override
+    public void deleteUserByRm(String rm) {
+        if (userRepository.existsByRm(rm)) {
+            userRepository.deleteByRm(rm);
+        } else throw new RuntimeException("User with RM: " + rm + " not found.");
     }
 }

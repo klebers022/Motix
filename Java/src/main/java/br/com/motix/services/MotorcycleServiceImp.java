@@ -38,8 +38,7 @@ public class MotorcycleServiceImp implements MotorcycleService {
             Motorcycle bike = bikeToUpdate.get();
             bike.setPlate(newPlate);
             return bikeRepository.save(bike);
-        }
-        return null;
+        } return null;
     }
 
     @Override
