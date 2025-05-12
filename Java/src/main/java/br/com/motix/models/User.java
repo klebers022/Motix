@@ -35,9 +35,6 @@ public class User {
     @Getter @Setter
     private String name;
 
-    @OneToMany(mappedBy = "user")
-    private List<Post> posts;
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
