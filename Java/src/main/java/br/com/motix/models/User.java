@@ -34,6 +34,9 @@ public class User {
     @Getter @Setter
     private String name;
 
+    @JoinTable(name = "updates")
+    private Updates updates;
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
