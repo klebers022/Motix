@@ -1,5 +1,6 @@
 package br.com.motix.controllers;
 
+import br.com.motix.dto.UserDTO;
 import br.com.motix.models.User;
 import br.com.motix.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -77,8 +78,8 @@ public class UserController {
     @PutMapping
     public User updateUser(
             @Parameter(description = "ID do usuário", required = true)
-            @RequestBody User user) {
-        return userService.updateUser(user);
+            @RequestBody UserDTO user) {
+        return userService.updateUser(user.toEntity());
     }
 
     @Operation(summary = "Cadastrar novo usuário",
@@ -87,8 +88,8 @@ public class UserController {
             }
     )
     @PostMapping
-    public User postUser(@RequestBody User user) {
-        return userService.postUser(user);
+    public User postUser(@RequestBody UserDTO user) {
+        return userService.postUser(user.toEntity());
     }
 
     @Operation(summary = "Deletar usuário por ID",

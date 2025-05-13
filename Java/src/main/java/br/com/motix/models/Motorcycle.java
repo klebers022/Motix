@@ -5,6 +5,7 @@ import br.com.motix.models.enums.Sectors;
 import jakarta.persistence.*;
 
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -30,7 +31,7 @@ public class Motorcycle {
     private Sectors sector;
 
     @Getter @Setter
-    @Column(length = 10)
+    @Column(length = 10)@NotNull
     private String position;
 
     @Getter @Setter//<---------------------------------------------------

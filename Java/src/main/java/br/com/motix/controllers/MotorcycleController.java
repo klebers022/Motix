@@ -1,6 +1,7 @@
 package br.com.motix.controllers;
 
 
+import br.com.motix.dto.MotorcycleDTO;
 import br.com.motix.models.Motorcycle;
 import br.com.motix.services.MotorcycleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,8 +78,8 @@ public class MotorcycleController {
             responses = {
                     @ApiResponse(responseCode = "201", description = "Motocicleta criada com sucesso")
             })
-    public Motorcycle postMotocycle(@RequestBody Motorcycle motorcycle){
-        return motorcycleService.postMotorcycle(motorcycle);
+    public Motorcycle postMotocycle(@RequestBody MotorcycleDTO motorcycle){
+        return motorcycleService.postMotorcycle(motorcycle.toEntity());
     }
 
     @PutMapping
