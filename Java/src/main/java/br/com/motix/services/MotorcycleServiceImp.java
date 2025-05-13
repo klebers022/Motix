@@ -47,22 +47,26 @@ public class MotorcycleServiceImp implements MotorcycleService {
         return bikeRepository.findAllByIsPlateReadableIsFalse();
     }
 
-    Motorcycle postMotorcycle(Motorcycle motorcycle) {
+    @Override
+    public Motorcycle postMotorcycle(Motorcycle motorcycle) {
         return bikeRepository.save(motorcycle);
     }
 
+    @Override
     public Motorcycle updateMotorcycle(Motorcycle motorcycle) {
         if (bikeRepository.existsByPlate(motorcycle.getPlate())) {
             throw new RuntimeException("Motorcycle with plate: " + motorcycle.getPlate() + " already exists.");
         } return bikeRepository.save(motorcycle);
     }
 
+    @Override
     public void deleteMotorcycleById(UUID id) {
         if (bikeRepository.existsById(id)) {
             bikeRepository.deleteById(id);
         }else throw new RuntimeException("Motorcycle with ID: " + id + " not found.");
     }
 
+    @Override
     public void deleteMotorcycleByPlate(String plate) {
         if (bikeRepository.existsByPlate(plate)) {
             bikeRepository.deleteByPlate(plate);

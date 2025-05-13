@@ -1,6 +1,5 @@
 package br.com.motix.services;
 
-import br.com.motix.models.Motorcycle;
 import br.com.motix.models.User;
 
 import java.util.List;
