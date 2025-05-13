@@ -204,3 +204,13 @@ Caused by: oracle.jdbc.OracleDatabaseException: ORA-00942: table or view does no
 2025-05-12T16:53:48.942-03:00  INFO 2108 --- [Motix] [restartedMain] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2025-05-12T16:53:48.943-03:00  INFO 2108 --- [Motix] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
 2025-05-12T16:53:48.951-03:00  INFO 2108 --- [Motix] [restartedMain] br.com.motix.MotixApplication            : Started MotixApplication in 8.334 seconds (process running for 9.937)
+2025-05-12T18:25:32.064-03:00  WARN 2108 --- [Motix] [SpringBootHikariCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : SpringBootHikariCP - Thread starvation or clock leap detected (housekeeper delta=20m45s263ms734µs500ns).
+2025-05-12T18:37:04.242-03:00  INFO 2108 --- [Motix] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-12T18:37:04.246-03:00  INFO 2108 --- [Motix] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-12T18:37:04.251-03:00  INFO 2108 --- [Motix] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-12T18:37:04.253-03:00 DEBUG 2108 --- [Motix] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table motorcycle cascade constraints
+2025-05-12T18:37:09.581-03:00 DEBUG 2108 --- [Motix] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table users cascade constraints
+2025-05-12T18:37:09.673-03:00  INFO 2108 --- [Motix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown initiated...
+2025-05-12T18:37:09.938-03:00  INFO 2108 --- [Motix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown completed.

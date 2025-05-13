@@ -1,4 +1,4 @@
-package br.com.motix.exceptionHandlers;
+package br.com.motix.exceptions.handlers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

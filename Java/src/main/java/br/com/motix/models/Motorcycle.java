@@ -2,15 +2,12 @@ package br.com.motix.models;
 
 import br.com.motix.models.enums.BikeType;
 import br.com.motix.models.enums.Sectors;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Check;
 
 import java.util.Objects;
 import java.util.UUID;

@@ -32,7 +32,8 @@ public class MotorcycleServiceImp implements MotorcycleService {
     }
 
     @Override
-    public Motorcycle updatePlate(UUID id, String newPlate) {
+    public Motorcycle updatePlate(UUID id, String newPlate) {  // <------------ Alteração apenas da placa faz sentido com as regras de negócio q
+
         Optional<Motorcycle> bikeToUpdate = bikeRepository.findById(id);
         if (bikeToUpdate.isPresent()) {
             Motorcycle bike = bikeToUpdate.get();
@@ -44,5 +45,27 @@ public class MotorcycleServiceImp implements MotorcycleService {
     @Override
     public List<Motorcycle> findAllReadPlatesFalse() {
         return bikeRepository.findAllByIsPlateReadableIsFalse();
+    }
+
+    Motorcycle postMotorcycle(Motorcycle motorcycle) {
+        return bikeRepository.save(motorcycle);
+    }
+
+    public Motorcycle updateMotorcycle(Motorcycle motorcycle) {
+        if (bikeRepository.existsByPlate(motorcycle.getPlate())) {
+            throw new RuntimeException("Motorcycle with plate: " + motorcycle.getPlate() + " already exists.");
+        } return bikeRepository.save(motorcycle);
+    }
+
+    public void deleteMotorcycleById(UUID id) {
+        if (bikeRepository.existsById(id)) {
+            bikeRepository.deleteById(id);
+        }else throw new RuntimeException("Motorcycle with ID: " + id + " not found.");
+    }
+
+    public void deleteMotorcycleByPlate(String plate) {
+        if (bikeRepository.existsByPlate(plate)) {
+            bikeRepository.deleteByPlate(plate);
+        }else throw new RuntimeException("Motorcycle with Plate: " + plate + " not found.");
     }
 }

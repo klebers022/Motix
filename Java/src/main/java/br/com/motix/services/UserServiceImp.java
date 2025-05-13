@@ -41,7 +41,11 @@ public class UserServiceImp implements UserService{
 
     @Override
     public User updateUser(User user) {
-        return userRepository.existsById(user.getId()) || userRepository.existsByRm(user.getRm())  ? userRepository.save(user) : null;
+        if (userRepository.existsByRm(user.getRm())) {
+            throw new RuntimeException("User with RM: " + user.getRm() + " already exists.");
+        } else return userRepository.save(user);
+
+
     }
 
     @Override
