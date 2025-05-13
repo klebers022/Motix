@@ -1,13 +1,11 @@
 package br.com.motix.dto;
 
 import br.com.motix.models.User;
+import jakarta.validation.constraints.NotNull;
 
-public record UserDTO(String name, String rm) {
+public record UserDTO(@NotNull String name, @NotNull String rm, @NotNull String password) {
 
     public User toEntity(){
-        User user = new User();
-        user.setName(this.name);
-        user.setRm(this.rm);
-        return user;
+        return new User(null, this.rm, this.password, this.name, null);
     }
 }

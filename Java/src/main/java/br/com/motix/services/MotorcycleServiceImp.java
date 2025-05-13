@@ -1,5 +1,6 @@
 package br.com.motix.services;
 
+import br.com.motix.exceptions.ExistingPlateErrorException;
 import br.com.motix.models.Motorcycle;
 import br.com.motix.repositories.MotorcycleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,7 @@ public class MotorcycleServiceImp implements MotorcycleService {
     @Override
     public Motorcycle updateMotorcycle(Motorcycle motorcycle) {
         if (bikeRepository.existsByPlate(motorcycle.getPlate())) {
-            throw new RuntimeException("Motorcycle with plate: " + motorcycle.getPlate() + " already exists.");
+            throw new ExistingPlateErrorException("Motorcycle with plate: " + motorcycle.getPlate() + " already exists.");
         } return bikeRepository.save(motorcycle);
     }
 

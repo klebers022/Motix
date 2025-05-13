@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -35,7 +36,8 @@ public class User {
     private String name;
 
     @JoinTable(name = "updates")
-    private Updates updates;
+    @OneToMany
+    private List<Updates> updates;
 
     @Override
     public boolean equals(Object o) {

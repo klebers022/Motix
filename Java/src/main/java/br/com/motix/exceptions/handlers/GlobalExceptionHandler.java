@@ -1,5 +1,6 @@
 package br.com.motix.exceptions.handlers;
 
+import br.com.motix.exceptions.ExistingPlateErrorException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -22,12 +23,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(errors);
     }
 
-    @ExceptionHandler(RuntimeException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResponseEntity<Map<String, String>> handleGenericException(RuntimeException ex) {
+    @ExceptionHandler(ExistingPlateErrorException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Map<String, String>> handleGenerieption(ExistingPlateErrorException ex) {
         Map<String, String> response = new HashMap<>();
         response.put("error", ex.getMessage());
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
 }
