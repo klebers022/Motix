@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class UserServiceImp implements UserService{
+public class
+
+UserServiceImp implements UserService{
 
     @Autowired
     private UserRepository userRepository;

@@ -2,6 +2,7 @@ package br.com.motix.models;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,17 +28,20 @@ public class User {
     private UUID id;
 
     @Getter @Setter
+    @Column(length = 10) @NotNull
     private String rm;
 
     @Getter @Setter
+    @Column(length = 30) @NotNull
     private String password;
 
     @Getter @Setter
+    @Column(length = 25 ) @NotNull
     private String name;
 
     @JoinTable(name = "updates")
     @OneToMany
-    private List<Updates> updates;
+    private List<Update> updates;
 
     @Override
     public boolean equals(Object o) {

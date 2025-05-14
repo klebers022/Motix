@@ -27,15 +27,15 @@ public class Motorcycle {
 
     @Getter @Setter
     @Enumerated(EnumType.STRING)
-    @Column(length = 15)
+    @Column(length = 15) @NotNull
     private Sectors sector;
 
     @Getter @Setter
-    @Column(length = 10)@NotNull
+    @Column(length = 10) @NotNull
     private String position;
 
     @Getter @Setter//<---------------------------------------------------
-    @Column(length = 10, unique = true)
+    @Column(length = 10, unique = true) @NotNull
     private String plate;
 
     @Getter @Setter
@@ -43,7 +43,7 @@ public class Motorcycle {
 
     @Getter @Setter
     @Enumerated(EnumType.STRING)
-    @Column(length = 15)
+    @Column(length = 15) @NotNull
     private BikeType type;
 
     public Motorcycle(UUID id, Sectors sector, String position, String plate, boolean isPlateReadable, BikeType type) {

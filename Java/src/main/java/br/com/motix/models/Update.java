@@ -2,16 +2,24 @@ package br.com.motix.models;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "updates")
-public class Updates {
+@AllArgsConstructor
+@NoArgsConstructor
+@Cacheable
+@Table(name = "update")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+public class Update {
 
     @Id
     @Getter @Setter
@@ -28,8 +36,10 @@ public class Updates {
     private Motorcycle motorcycle;
 
     @Getter @Setter
+    @Column(length = 6) @NotNull
     private Date updateDate;
 
     @Getter @Setter
+    @Column(length = 50) @NotNull
     private String updateMessage;
 }

@@ -478,8 +478,8 @@ Caused by: oracle.jdbc.OracleDatabaseException: ORA-00942: a tabela ou view não
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-05-13T10:44:45.160-03:00 ERROR 9840 --- [Motix] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Entity 'br.com.motix.models.Updates' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
-2025-05-13T10:44:45.161-03:00  WARN 9840 --- [Motix] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'br.com.motix.models.Updates' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
+2025-05-13T10:44:45.160-03:00 ERROR 9840 --- [Motix] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Entity 'br.com.motix.models.Update' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
+2025-05-13T10:44:45.161-03:00  WARN 9840 --- [Motix] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'br.com.motix.models.Update' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
 2025-05-13T10:44:45.166-03:00  INFO 9840 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown initiated...
 2025-05-13T10:44:45.719-03:00  INFO 9840 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown completed.
 2025-05-13T10:44:45.726-03:00  INFO 9840 --- [Motix] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
@@ -488,7 +488,7 @@ Caused by: oracle.jdbc.OracleDatabaseException: ORA-00942: a tabela ou view não
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-05-13T10:44:45.781-03:00 ERROR 9840 --- [Motix] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'br.com.motix.models.Updates' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'br.com.motix.models.Update' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1818) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
@@ -508,7 +508,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.5.jar:3.4.5]
-Caused by: org.hibernate.AnnotationException: Entity 'br.com.motix.models.Updates' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
+Caused by: org.hibernate.AnnotationException: Entity 'br.com.motix.models.Update' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
 	at org.hibernate.boot.model.internal.InheritanceState.determineDefaultAccessType(InheritanceState.java:289) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
 	at org.hibernate.boot.model.internal.InheritanceState.getElementsToProcess(InheritanceState.java:226) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
 	at org.hibernate.boot.model.internal.InheritanceState.postProcess(InheritanceState.java:162) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
@@ -556,8 +556,8 @@ Caused by: org.hibernate.AnnotationException: Entity 'br.com.motix.models.Update
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-05-13T10:46:21.529-03:00 ERROR 6008 --- [Motix] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Entity 'br.com.motix.models.Updates' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
-2025-05-13T10:46:21.536-03:00  WARN 6008 --- [Motix] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'br.com.motix.models.Updates' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
+2025-05-13T10:46:21.529-03:00 ERROR 6008 --- [Motix] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Entity 'br.com.motix.models.Update' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
+2025-05-13T10:46:21.536-03:00  WARN 6008 --- [Motix] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'br.com.motix.models.Update' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
 2025-05-13T10:46:21.539-03:00  INFO 6008 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown initiated...
 2025-05-13T10:46:21.692-03:00  INFO 6008 --- [Motix] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown completed.
 2025-05-13T10:46:21.696-03:00  INFO 6008 --- [Motix] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
@@ -566,7 +566,7 @@ Caused by: org.hibernate.AnnotationException: Entity 'br.com.motix.models.Update
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-05-13T10:46:21.753-03:00 ERROR 6008 --- [Motix] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'br.com.motix.models.Updates' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'br.com.motix.models.Update' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1818) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
@@ -586,7 +586,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.5.jar:3.4.5]
-Caused by: org.hibernate.AnnotationException: Entity 'br.com.motix.models.Updates' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
+Caused by: org.hibernate.AnnotationException: Entity 'br.com.motix.models.Update' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
 	at org.hibernate.boot.model.internal.InheritanceState.determineDefaultAccessType(InheritanceState.java:289) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
 	at org.hibernate.boot.model.internal.InheritanceState.getElementsToProcess(InheritanceState.java:226) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
 	at org.hibernate.boot.model.internal.InheritanceState.postProcess(InheritanceState.java:162) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
