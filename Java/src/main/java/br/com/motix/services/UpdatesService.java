@@ -12,8 +12,6 @@ import java.util.UUID;
 public interface UpdatesService {
     List<Update> findAll();
 
-    Update findById(UUID id);
-
     List<Update> findByUserId(User user);
 
     List<Update> findByMotorcycleId(Motorcycle motorcycle);

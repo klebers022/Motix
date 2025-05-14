@@ -73,4 +73,5 @@ public class Motorcycle {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
 }
