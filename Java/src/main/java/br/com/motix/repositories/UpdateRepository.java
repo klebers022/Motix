@@ -24,6 +24,8 @@ public interface UpdateRepository extends JpaRepository<Update, UUID> {
 
     boolean existsById(UUID id);
 
+    boolean existsByUser(User user);
+
     @Override
     void deleteById(UUID id);
 }

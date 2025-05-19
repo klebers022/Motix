@@ -8,6 +8,7 @@ import br.com.motix.models.User;
 import br.com.motix.repositories.MotorcycleRepository;
 import br.com.motix.repositories.UpdateRepository;
 import br.com.motix.repositories.UserRepository;
+import br.com.motix.services.interfaces.UpdatesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import java.util.UUID;
 
 
 @Service
-public class UpdateServiceImp implements UpdatesService{
+public class UpdateServiceImp implements UpdatesService {
 
     @Autowired
     private UpdateRepository updateRepository;
@@ -61,7 +62,7 @@ public class UpdateServiceImp implements UpdatesService{
 
     @Override
     public Update update(Update update) {
-        if(updateRepository.existsById(update.getId())){
+        if(userRepository.existsById(update.getId())){
             return updateRepository.save(update);
         }else throw new ExistingUpdateErrorException("This update does not exist");
     }

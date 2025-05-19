@@ -1,4 +1,4 @@
-package br.com.motix.services;
+package br.com.motix.services.interfaces;
 
 import br.com.motix.models.Motorcycle;
 
@@ -12,8 +12,6 @@ public interface MotorcycleService {
     Motorcycle findById(UUID id);
 
     Motorcycle findByPlate(String plate);
-
-    Motorcycle updatePlate(UUID id, String newPlate); //<-----------------------
 
     List<Motorcycle> findAllReadPlatesFalse();
 

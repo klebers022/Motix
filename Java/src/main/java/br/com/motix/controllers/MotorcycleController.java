@@ -1,9 +1,10 @@
 package br.com.motix.controllers;
 
 
-import br.com.motix.dto.MotorcycleDTO;
+import br.com.motix.models.dto.MotorcycleDTO;
 import br.com.motix.models.Motorcycle;
-import br.com.motix.services.MotorcycleService;
+import br.com.motix.services.interfaces.MotorcycleService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +29,8 @@ public class MotorcycleController {
             responses = {
                     @ApiResponse(responseCode = "200", description = "Motocicletas listadas com sucesso")
             })
-    public List<Motorcycle> findAll() {
-        return motorcycleService.findAll();
+    public List<MotorcycleDTO> getAllMotorcycles() {
+        return MotorcycleDTO.fromEntityList(motorcycleService.findAll());
     }
 
     @GetMapping("/plate-error")
@@ -37,8 +38,8 @@ public class MotorcycleController {
             responses = {
                     @ApiResponse(responseCode = "200", description = "Motocicletas com erro de placa listadas com sucesso")
             })
-    public List<Motorcycle> findAllPlateErrors() {
-        return motorcycleService.findAllReadPlatesFalse();
+    public List<MotorcycleDTO> findAllPlateErrors() {
+        return MotorcycleDTO.fromEntityList(motorcycleService.findAllReadPlatesFalse());
     }
 
     @GetMapping("/{id:[0-9a-fA-F\\-]{36}}")
@@ -47,9 +48,9 @@ public class MotorcycleController {
                     @ApiResponse(responseCode = "200", description = "Motocicleta encontrada"),
                     @ApiResponse(responseCode = "404", description = "Motocicleta não encontrada")
             })
-    public Motorcycle findById(
-            @Parameter(description = "UUID da motocicleta") @PathVariable UUID id) {
-        return motorcycleService.findById(id);
+    public MotorcycleDTO findById(@Parameter(description = "UUID da motocicleta")
+                                  @PathVariable UUID id) {
+        return MotorcycleDTO.fromEntity(motorcycleService.findById(id));
     }
 
     @GetMapping("/{plate}")
@@ -58,28 +59,8 @@ public class MotorcycleController {
                     @ApiResponse(responseCode = "200", description = "Motocicleta encontrada"),
                     @ApiResponse(responseCode = "404", description = "Motocicleta não encontrada")
             })
-    public Motorcycle findByPlate(
-            @Parameter(description = "Placa da motocicleta") @PathVariable String plate) {
-        return motorcycleService.findByPlate(plate);
-    }
-
-    @PutMapping("/plate")
-    @Operation(summary = "Atualizar apenas a placa de uma motocicleta",
-            responses = {
-                    @ApiResponse(responseCode = "200", description = "Placa atualizada com sucesso"),
-                    @ApiResponse(responseCode = "404", description = "Motocicleta não encontrada")
-            })
-    public Motorcycle updatePlate(@RequestBody Motorcycle motorcycle) {
-        return motorcycleService.updatePlate(motorcycle.getId(), motorcycle.getPlate());
-    }
-
-    @PostMapping
-    @Operation(summary = "Cadastrar uma nova motocicleta",
-            responses = {
-                    @ApiResponse(responseCode = "201", description = "Motocicleta criada com sucesso")
-            })
-    public Motorcycle postMotocycle(@RequestBody MotorcycleDTO motorcycle){
-        return motorcycleService.postMotorcycle(motorcycle.toEntity());
+    public MotorcycleDTO findByPlate(@Parameter(description = "Placa da motocicleta") @PathVariable String plate) {
+        return MotorcycleDTO.fromEntity(motorcycleService.findByPlate(plate));
     }
 
     @PutMapping
@@ -88,8 +69,20 @@ public class MotorcycleController {
                     @ApiResponse(responseCode = "200", description = "Motocicleta atualizada com sucesso"),
                     @ApiResponse(responseCode = "404", description = "Motocicleta não encontrada")
             })
-    public Motorcycle updateMotocycle(@RequestBody Motorcycle motorcycle){
-        return motorcycleService.updateMotorcycle(motorcycle);
+    public MotorcycleDTO updateMotorclycle(@Parameter(description = "JSON de uma motocicleta") @RequestBody MotorcycleDTO dto) {
+        return MotorcycleDTO.fromEntity(motorcycleService.updateMotorcycle(dto.toEntity()));
+    }
+
+    @PostMapping
+    @Operation(summary = "Cadastrar uma nova moto usando DTO",
+            responses = {
+                    @ApiResponse(responseCode = "201", description = "Motocicleta criada com sucesso"),
+                    @ApiResponse(responseCode = "404", description = "Não foi possivel cadastrar a Motocicleta")
+            })
+    public MotorcycleDTO postMotorcycle(@Parameter(description = "JSON de uma motocicletaDTO") @RequestBody @Valid MotorcycleDTO dto) {
+        Motorcycle toMap = dto.toEntity();
+        Motorcycle response = motorcycleService.postMotorcycle(toMap);
+        return MotorcycleDTO.fromEntity(response);
     }
 
     @DeleteMapping("/{id:[0-9a-fA-F\\-]{36}}")

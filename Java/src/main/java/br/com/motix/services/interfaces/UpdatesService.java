@@ -1,9 +1,8 @@
-package br.com.motix.services;
+package br.com.motix.services.interfaces;
 
 import br.com.motix.models.Motorcycle;
 import br.com.motix.models.Update;
 import br.com.motix.models.User;
-import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;

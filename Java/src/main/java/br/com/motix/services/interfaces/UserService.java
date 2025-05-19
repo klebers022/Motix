@@ -1,4 +1,4 @@
-package br.com.motix.services;
+package br.com.motix.services.interfaces;
 
 import br.com.motix.models.User;
 

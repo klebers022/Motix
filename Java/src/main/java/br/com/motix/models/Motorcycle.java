@@ -55,11 +55,14 @@ public class Motorcycle {
         this.type = type;
     }
 
-    private void readPlate(String plate) {   //<------------------------------------------------
+    public String readPlate(String plate) {   //<------------------------------------------------
         if (plate != null) {
             setPlateReadable(true);
-            this.plate = plate;
-        }else setPlateReadable(false);
+            return this.plate = plate;
+        }else{
+            setPlateReadable(false);
+            return null;
+        }
     }
 
     @Override

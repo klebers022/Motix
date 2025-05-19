@@ -1,8 +1,8 @@
 package br.com.motix.controllers;
 
-import br.com.motix.dto.UserDTO;
+import br.com.motix.models.dto.UserDTO;
 import br.com.motix.models.User;
-import br.com.motix.services.UserService;
+import br.com.motix.services.interfaces.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -27,8 +27,8 @@ public class UserController {
             }
     )
     @GetMapping
-    public List<User> findAll() {
-        return userService.findAll();
+    public List<UserDTO> findAll() {
+        return UserDTO.fromEntityList(userService.findAll());
     }
 
     @Operation(summary = "Buscar usuário por ID",
@@ -38,10 +38,10 @@ public class UserController {
             }
     )
     @GetMapping("/{id:[0-9a-fA-F\\-]{36}}")
-    public User findById(
+    public UserDTO findById(
             @Parameter(description = "ID do usuário", required = true)
             @PathVariable UUID id) {
-        return userService.findById(id);
+        return UserDTO.fromEntity(userService.findById(id));
     }
 
     @Operation(summary = "Buscar usuário por RM",
@@ -51,10 +51,10 @@ public class UserController {
             }
     )
     @GetMapping("/rm/{rm}")
-    public User findByRm(
+    public UserDTO findByRm(
             @Parameter(description = "RM do usuário", required = true)
             @PathVariable String rm) {
-        return userService.findByRm(rm);
+        return UserDTO.fromEntity(userService.findByRm(rm));
     }
 
     @Operation(summary = "Buscar usuários por nome",
@@ -63,10 +63,10 @@ public class UserController {
             }
     )
     @GetMapping("/{name}")
-    public List<User> findByName(
+    public List<UserDTO> findByName(
             @Parameter(description = "Nome do usuário", required = true)
             @PathVariable String name) {
-        return userService.findByName(name);
+        return UserDTO.fromEntityList(userService.findByName(name));
     }
 
     @Operation(summary = "Atualizar usuário por ID",
@@ -76,10 +76,10 @@ public class UserController {
             }
     )
     @PutMapping
-    public User updateUser(
-            @Parameter(description = "ID do usuário", required = true)
+    public UserDTO updateUser(
+            @Parameter(description = "JSON do usuário", required = true)
             @RequestBody UserDTO user) {
-        return userService.updateUser(user.toEntity());
+        return UserDTO.fromEntity(userService.updateUser(user.toEntity()));
     }
 
     @Operation(summary = "Cadastrar novo usuário",
@@ -88,8 +88,12 @@ public class UserController {
             }
     )
     @PostMapping
-    public User postUser(@RequestBody UserDTO user) {
-        return userService.postUser(user.toEntity());
+    public UserDTO postUser(
+            @Parameter(description = "JSON de Usuario", required = true)
+            @RequestBody UserDTO user) {
+        User toMap = user.toEntity();
+        User response = userService.postUser(toMap);
+        return UserDTO.fromEntity(response);
     }
 
     @Operation(summary = "Deletar usuário por ID",
