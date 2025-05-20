@@ -164,14 +164,17 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.10.1</version> <!-- Pode ajustar para a versão compatível com seu projeto -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<source>17</source> <!-- Ou a versão Java que você está usando -->
-					<target>17</target>
-					<parameters>true</parameters>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
 				</configuration>
+
 			</plugin>
 		</plugins>
 	</build>
