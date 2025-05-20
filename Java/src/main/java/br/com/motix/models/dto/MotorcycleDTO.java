@@ -40,18 +40,16 @@ public class MotorcycleDTO extends Motorcycle {
         this.sector = sector;
         this.position = position;
         this.type = type;
-        readPlate(plate);
+        this.plate = plate;
         this.isPlateReadable = isPlateReadable;
     }
 
 
     public Motorcycle toEntity() {   //<----------------------------Metodos usados na Controller para converter a DTO
         Motorcycle motorcycle = new Motorcycle(null, this.sector, this.position, this.plate, false, this.type);
-        motorcycle.setPlateReadable(this.isPlateReadable);
+        if (this.plate != null) motorcycle.setPlateReadable(this.isPlateReadable);
         return motorcycle;
     }
-
-
 
     public static MotorcycleDTO fromEntity(Motorcycle motorcycle) {
         if (motorcycle == null) return null;

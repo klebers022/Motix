@@ -42,7 +42,7 @@ public class MotorcycleController {
         return MotorcycleDTO.fromEntityList(motorcycleService.findAllReadPlatesFalse());
     }
 
-    @GetMapping("/{id:[0-9a-fA-F\\-]{36}}")
+    @GetMapping("/id/{id:[0-9a-fA-F\\-]{36}}")
     @Operation(summary = "Buscar motocicleta por ID",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Motocicleta encontrada"),
@@ -79,7 +79,7 @@ public class MotorcycleController {
                     @ApiResponse(responseCode = "201", description = "Motocicleta criada com sucesso"),
                     @ApiResponse(responseCode = "404", description = "Não foi possivel cadastrar a Motocicleta")
             })
-    public MotorcycleDTO postMotorcycle(@Parameter(description = "JSON de uma motocicletaDTO") @RequestBody @Valid MotorcycleDTO dto) {
+    public MotorcycleDTO postMotorcycle(@Parameter(description = "JSON de uma motocicletaDTO") @RequestBody MotorcycleDTO dto) {
         Motorcycle toMap = dto.toEntity();
         Motorcycle response = motorcycleService.postMotorcycle(toMap);
         return MotorcycleDTO.fromEntity(response);

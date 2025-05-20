@@ -40,12 +40,12 @@ UserServiceImp implements UserService {
     }
 
     @Override
-    public User postUser(User user) {
+    public User updateUser(User user) {
         return userRepository.save(user);
     }
 
     @Override
-    public User updateUser(User user) {
+    public User postUser(User user) {
         if (userRepository.existsByRm(user.getRm())) {
             throw new ExistingUserErrorException("User with RM: " + user.getRm() + " already exists.");
         } else return userRepository.save(user);

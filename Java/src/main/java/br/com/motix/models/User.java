@@ -42,6 +42,7 @@ public class User {
     @JoinTable(name = "updates")
     @OneToMany
     @Getter @Setter
+
     private List<Update> updates;
 
     @Override

@@ -30,7 +30,6 @@ public class MotorcycleMapper {
         dto.setSector(mapped.getSector());
         dto.setPosition(mapped.getPosition());
         dto.setPlateReadable(mapped.isPlateReadable());
-        dto.setId(mapped.getId());
         return dto;
     }
 }

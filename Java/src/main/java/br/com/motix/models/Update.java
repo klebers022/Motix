@@ -17,7 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Cacheable
-@Table(name = "update")
+@Table(name = "user_update")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Update {
 
