@@ -105,8 +105,6 @@ Nenhum componente aqui é considerado como produto final ou em produção.
 
 ---
 
-## 📬 Contato
 
-Para dúvidas ou sugestões, entre em contato com os autores ou abra uma *issue*.
 
 
