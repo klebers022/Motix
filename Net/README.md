@@ -60,8 +60,9 @@ Pré-requisitos:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seuusuario/motix.git
+git clone https://github.com/klebers022/motix.git
 cd motix
+cd Net
 ```
 
 2. Configure a string de conexão em appsettings.json:
