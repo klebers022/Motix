@@ -1,83 +1,76 @@
-# 🚦 MOTIX — Projeto Integrado (Challenge FIAP 2025 - 1º Semestre)
+# 🚀 MOTIX — Projeto Integrador (FIAP 2025 - Challenge 1º Semestre)
 
-Este repositório reúne **todas as entregas e implementações** desenvolvidas para o projeto **MOTIX**, uma solução integrada baseada em IoT, visão computacional, cloud e mobile, que visa **organizar e controlar motocicletas em pátios logísticos da Mottu**.
+Repositório central do projeto **MOTIX**, uma solução integrada que usa IoT, visão computacional, mobile, cloud, e boas práticas de segurança para **localizar e organizar motocicletas em pátios logísticos** da empresa Mottu.
 
----
-
-## 🎯 Objetivo Geral
-
-Desenvolver uma solução prática e inovadora capaz de localizar, identificar e organizar motos de forma automática em pátios, utilizando câmeras setoriais, inteligência artificial (IA), e um app de acompanhamento.
+Este repositório agrega todos os módulos implementados pelas disciplinas do semestre, com entregas práticas em diversas tecnologias.
 
 ---
 
-## 📁 Estrutura do Repositório
+## 📚 Disciplinas e Componentes
+
+| 📂 Pasta            | 📘 Disciplina                  | 💬 Descrição                                                                 |
+|---------------------|--------------------------------|------------------------------------------------------------------------------|
+| `mobile/`           | Mobile Development             | Aplicativo React Native (Expo) para cadastro, controle e relatórios de motos |
+| `backend-java/`     | Java Development               | API REST de usuários com Spring Boot e Swagger                              |
+| `iot-detection/`    | IoT & Computer Vision          | Script Python com Roboflow para identificar motos por imagem aérea          |
+| `devops/`           | Cloud & DevOps Tools           | Dockerfile, deploy em Azure VM e scripts de provisionamento via CLI         |
+| `database/`         | Database & Persistence         | Scripts SQL para modelagem relacional e integração com a aplicação Java     |
+| `compliance/`       | Governance & Compliance        | Documentação de riscos, plano de continuidade e adequação à LGPD             |
+| `net/`              | Desenvolvimento .NET (extra)   | API REST alternativa utilizando .NET para ampliação tecnológica              |
 
 ---
 
+## 🎯 Objetivo do Projeto
+
+Resolver um problema logístico real da Mottu: **a dificuldade de localizar motos em pátios** quando estão sem placa, desorganizadas ou com localizador inativo.
+
+### A solução proposta:
+- Divide o pátio por setor
+- Usa câmera aérea + IA para detectar motos automaticamente
+- Permite cadastro manual de motos sem placa
+- Fornece app para controle em tempo real e exportação de relatórios
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+| Categoria         | Tecnologias / Ferramentas                         |
+|-------------------|---------------------------------------------------|
+| Mobile            | React Native, Expo, AsyncStorage                  |
+| Backend Java      | Spring Boot, Java 17, Swagger, Maven              |
+| Backend .NET      | ASP.NET Core, Entity Framework                    |
+| IoT & Visão Comp. | Python, Pillow, Roboflow API                      |
+| Banco de Dados    | PostgreSQL, Oracle SQL (scriptado)                |
+| DevOps & Cloud    | Docker, Azure CLI, Azure VM, GitHub Actions       |
+
+
+---
+
+## 📂 Estrutura do Repositório
+
+```
 motix/
-├── mobile/ # Aplicativo React Native (Expo)
-├──java/ # API de usuários em Spring Boot
-├── iot/ # Script de visão computacional com Roboflow (Python)
-├── cloud/ # Dockerfile, Azure CLI scripts e deploy
-├── copilance/ # Diagramas TOGAF e ArchiMate
-├── net/ # api de dotnet
-└── README.md # Este arquivo
+├── Cloud/                  # Deploy, scripts e Dockerfile
+├── Compliance/             # Relatórios, política de segurança, plano LGPD
+├── Database/               # Scripts SQL de criação e população
+├── Iot/                    # Roboflow + visão computacional
+├── Java/                   # Spring Boot API
+├── Mobile/                 # App React Native
+├── Net/                    # API .NET Core (opcional)
+└── README.md               # Este arquivo
 
-
----
-
-## 🔧 Tecnologias Usadas
-
-| Categoria          | Tecnologias                                                   |
-|--------------------|---------------------------------------------------------------|
-| Mobile             | React Native, Expo, AsyncStorage                              |
-| Backend            | Java 17, Spring Boot, Swagger                                 |
-| IoT / Visão Comp.  | Python, Pillow, Roboflow API                                  |
-| Cloud / DevOps     | Docker, Azure CLI, Azure VM Ubuntu                            |
-| Arquitetura        | TOGAF®, ArchiMate® via Archi                                  |
-| Documentação       | Markdown, PDF, Swagger UI                                     |
+```
 
 ---
 
-## 📱 Aplicativo Mobile
+## 📱 Funcionalidades
 
-- 📋 Tela de login (validação por RM e senha)
-- 🧾 Tela de cadastro de motos com horário, placa e vaga
-- 📊 Dashboard com visualização das vagas ocupadas e livres (Setor A - 3x3)
-- 📂 Tela de relatórios com filtro por data, setor e exportação em PDF
-
-➡️ [`mobile/README.md`](./mobile/README.md)
-
----
-
-## 🧠 Detecção com Roboflow (IoT)
-
-- Processa imagens aéreas para identificar motos em slots
-- Usa visão computacional via Roboflow Hosted API
-- Script Python gera bounding boxes e matriz com ocupação
-- Pronto para integração com ESP32 ou Raspberry Pi
-
-➡️ [`iot-detection/README_IOT.md`](./iot-detection/README_IOT.md)
-
----
-
-## ☁️ Deploy com Azure CLI
-
-- Dockerfile multistage para aplicação Java
-- Azure CLI cria recursos, VM Linux, libera portas e executa o container
-- Imagem publicada no DockerHub
-
-➡️ [`devops/README_DEVOPS.md`](./devops/README_DEVOPS.md)
-
----
-
-## 🧱 Arquitetura da Solução
-
-- Aplicação estruturada com base no framework **TOGAF®**
-- Representação visual em **ArchiMate®**
-- Visões de Negócio, Sistemas, Tecnologia e Estratégia integradas
-
-➡️ [`arquitetura/`](./arquitetura/)
+- Login via RM + senha
+- Cadastro de motos com data/hora e vaga
+- Validação de vagas ocupadas
+- Relatórios com exportação em PDF
+- Detecção de motos por imagem aérea
+- Deploy automatizado em nuvem com Docker + Azure CLI
 
 ---
 
@@ -91,20 +84,22 @@ motix/
 
 ---
 
-## 📚 Instituição
+## 🎓 Instituição
 
-Este projeto foi desenvolvido no contexto do **Challenge FIAP 2025 - 1º Semestre**  
-Curso: **Análise e Desenvolvimento de Sistemas**
+**FIAP - Faculdade de Informática e Administração Paulista**  
+Curso: **Análise e Desenvolvimento de Sistemas**  
+Período: **1º Semestre de 2025** — Challenge Integrador
+
+---
+
+## 📬 Contato
+
+Dúvidas, sugestões ou colaboração?  
+Abra uma *issue* neste repositório ou envie um e-mail para a equipe.
 
 ---
 
 ## 📝 Licença
 
-Este repositório é de uso **educacional** e **prototípico**.  
-Nenhum componente aqui é considerado como produto final ou em produção.
-
----
-
-
-
-
+Este projeto é **educacional** e não possui fins comerciais.  
+Todos os dados e códigos são protótipos em fase acadêmica.
