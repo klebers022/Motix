@@ -1,7 +1,7 @@
 # 🚀 MOTIX — Projeto Integrador (FIAP 2025 - Challenge 1º Semestre)
 
 <p align="center">
-  <img src="capa.png" alt="MOTIX - Main Repository" width="600"/>
+  <img src="capa.png" alt="MOTIX - Main Repository" width="300"/>
 </p>
 
 
