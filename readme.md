@@ -1,5 +1,10 @@
 # 🚀 MOTIX — Projeto Integrador (FIAP 2025 - Challenge 1º Semestre)
 
+<p align="center">
+  <img src="capa.png" alt="MOTIX - Main Repository" width="600"/>
+</p>
+
+
 Repositório central do projeto **MOTIX**, uma solução integrada que usa IoT, visão computacional, mobile, cloud, e boas práticas de segurança para **localizar e organizar motocicletas em pátios logísticos** da empresa Mottu.
 
 Este repositório agrega todos os módulos implementados pelas disciplinas do semestre, com entregas práticas em diversas tecnologias.
