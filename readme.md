@@ -11,9 +11,9 @@ Este repositório agrega todos os módulos implementados pelas disciplinas do se
 | 📂 Pasta            | 📘 Disciplina                  | 💬 Descrição                                                                 |
 |---------------------|--------------------------------|------------------------------------------------------------------------------|
 | `mobile/`           | Mobile Development             | Aplicativo React Native (Expo) para cadastro, controle e relatórios de motos |
-| `backend-java/`     | Java Development               | API REST de usuários com Spring Boot e Swagger                              |
-| `iot-detection/`    | IoT & Computer Vision          | Script Python com Roboflow para identificar motos por imagem aérea          |
-| `devops/`           | Cloud & DevOps Tools           | Dockerfile, deploy em Azure VM e scripts de provisionamento via CLI         |
+| `java/`             | Java Development               | API REST de usuários com Spring Boot e Swagger                              |
+| `iot/`              | IoT & Computer Vision          | Script Python com Roboflow para identificar motos por imagem aérea          |
+| `cloud/`            | Cloud & DevOps Tools           | Dockerfile, deploy em Azure VM e scripts de provisionamento via CLI         |
 | `database/`         | Database & Persistence         | Scripts SQL para modelagem relacional e integração com a aplicação Java     |
 | `compliance/`       | Governance & Compliance        | Documentação de riscos, plano de continuidade e adequação à LGPD             |
 | `net/`              | Desenvolvimento .NET (extra)   | API REST alternativa utilizando .NET para ampliação tecnológica              |
