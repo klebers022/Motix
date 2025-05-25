@@ -6,6 +6,8 @@ import br.com.motix.models.Motorcycle;
 import br.com.motix.repositories.MotorcycleRepository;
 import br.com.motix.services.interfaces.MotorcycleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,9 +20,9 @@ public class MotorcycleServiceImp implements MotorcycleService {
     @Autowired
     private MotorcycleRepository bikeRepository;
 
-    @Override
-    public List<Motorcycle> findAll() {
-        return bikeRepository.findAll();
+
+    public Page<Motorcycle> findAll(Pageable pageable) {
+        return bikeRepository.findAll(pageable);
     }
 
     @Override

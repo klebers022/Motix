@@ -6,6 +6,10 @@ import br.com.motix.models.Motorcycle;
 import br.com.motix.services.interfaces.MotorcycleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,13 +28,20 @@ public class MotorcycleController {
     @Autowired
     private MotorcycleService motorcycleService;
 
-    @GetMapping
     @Operation(summary = "Listar todas as motocicletas",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Motocicletas listadas com sucesso")
             })
-    public List<MotorcycleDTO> getAllMotorcycles() {
-        return MotorcycleDTO.fromEntityList(motorcycleService.findAll());
+    @GetMapping
+    public Page<MotorcycleDTO> getAllMotorcycles(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "plate") String sortBy) {
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+
+        return motorcycleService.findAll(pageable)
+                .map(MotorcycleDTO::fromEntity);
     }
 
     @GetMapping("/plate-error")

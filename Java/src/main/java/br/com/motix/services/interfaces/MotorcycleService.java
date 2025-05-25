@@ -1,13 +1,15 @@
 package br.com.motix.services.interfaces;
 
 import br.com.motix.models.Motorcycle;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface MotorcycleService {
 
-    List<Motorcycle> findAll();
+    Page<Motorcycle> findAll(Pageable pageable);
 
     Motorcycle findById(UUID id);
 

@@ -12,7 +12,7 @@ Este projeto faz parte do ecossistema da solução **Motix**, voltada para contr
 - **Spring Web**
 - **Spring Data JPA**
 - **OpenAPI (Swagger)**
-- **PostgreSQL (ou outro banco relacional)**
+- **OracleDB**
 - **Lombok**
 - **Maven**
 
@@ -35,18 +35,16 @@ A API permite:
 
 ---
 
-## 🔓 Endpoints
+## 🔓 Endpoints para Testar
 
-| Método | Endpoint                      | Descrição                       |
-|--------|-------------------------------|----------------------------------|
-| GET    | `/users`                      | Lista todos os usuários          |
-| GET    | `/users/{id}`                 | Busca usuário por ID             |
-| GET    | `/users/rm/{rm}`              | Busca usuário por RM             |
-| GET    | `/users/{name}`               | Busca usuários por nome          |
-| POST   | `/users`                      | Cadastra um novo usuário         |
-| PUT    | `/users`                      | Atualiza um usuário              |
-| DELETE | `/users/{id}`                 | Remove usuário por ID            |
-| DELETE | `/users/rm/{rm}`              | Remove usuário por RM            |
+| Método | Endpoint                                | Descrição                         |
+|--------|-----------------------------------------|-----------------------------------|
+| GET    | `/users?page=0&size=5&sort=name,asc`    | Lista todos os usuários paginados |
+| GET    | `/bikes?page=0&size=5&sortBy=plate`     | Lista todos as motos paginadas    |
+|--------| --------------------------------------- |-----------------------------------|
+
+*Lembrar de acessar a porta 8080 ao se conectar aos endpoints!*
+
 
 > Todas as rotas estão documentadas no Swagger UI.
 
@@ -74,9 +72,9 @@ http://localhost:8080/swagger-ui/index.html
 
 ```bash
 # Clone o repositório
-git clone https://github.com/klebers022/motix.git
-cd motix
-cd java
+git clone https://github.com/klebers022/Motix.git
+cd Motix
+cd Java
 
 # Compilar e rodar
 ./mvnw spring-boot:run
@@ -106,6 +104,6 @@ src/
 
 ## 📬 Contato
 
-Em caso de dúvidas, entre em contato via [email institucional] ou [GitHub Issues].
+Em caso de dúvidas, entre em contato via [rm558471@fiap.com.br] ou [LucasRainha] (GitHub).
 
 ---
