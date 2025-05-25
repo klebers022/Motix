@@ -1,0 +1,1 @@
+A parte anterior da entrega foi feita baseado na API de DotNet por causa dos relacionamentos, essa parte de plsql foi baseada em Java, então usar as tabelas dessa *Conecção: rm558471 - 080203*.

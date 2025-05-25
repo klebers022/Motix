@@ -113,7 +113,7 @@ docker login -u seu usuario
 
 ### 🔷 4. Rodar container com imagem publicada
 ```bash
-docker run -d -p 8080:8080 lucasrainha/motix:0.2
+docker run -d -p 8080:8080 lucasrainha/motix:2.0
 ```
 
 ### 🔷 5. Abrir porta 8080 no NSG da VM

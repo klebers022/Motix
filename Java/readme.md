@@ -41,9 +41,10 @@ A API permite:
 |--------|-----------------------------------------|-----------------------------------|
 | GET    | `/users?page=0&size=5&sort=name,asc`    | Lista todos os usuários paginados |
 | GET    | `/bikes?page=0&size=5&sortBy=plate`     | Lista todos as motos paginadas    |
-|--------| --------------------------------------- |-----------------------------------|
+
 
 *Lembrar de acessar a porta 8080 ao se conectar aos endpoints!*
+
 
 
 > Todas as rotas estão documentadas no Swagger UI.
