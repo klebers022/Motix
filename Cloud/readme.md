@@ -106,25 +106,45 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
-### 🔷 3.5. Login no DockerHub
-```bash
-docker login -u seu usuario
-```
-
-### 🔷 4. Rodar container com imagem publicada
-```bash
-docker run -d -p 8080:8080 lucasrainha/motix:2.0
-```
-
-### 🔷 5. Abrir porta 8080 no NSG da VM
+### 🔷 4. Abrir porta 8080 no NSG da VM
 ```bash
 az network nsg rule create   --resource-group rg-vm-challenge   --nsg-name vm-challengeNSG   --name port_8080   --protocol tcp   --priority 1010   --destination-port-range 8080
 ```
 
-### 🔷 6. (Opcional) Liberar porta 80
+### 🔷 5. Liberar porta 80
 ```bash
 az network nsg rule create   --resource-group rg-vm-challenge   --nsg-name vm-challengeNSG   --name port_80   --protocol tcp   --priority 1020   --destination-port-range 80
 ```
+
+### 🔷 6. Liberar porta 1521 para o banco de dados
+```bash
+az network nsg rule create --resource-group rg-vm-challenge --nsg-name vm-challengeNSG --name port_1521 --protocol tcp --priority 1021 --destination-port-range 1521 --access allow --direction inbound
+```
+
+### 🔷 7. Adicionar o grupo Docker e entrar (Usar docker sem privilégios)
+```bash
+sudo groupadd docker
+
+sudo usermod -aG docker $USER
+
+newgrp Docker
+```
+
+### 🔷 8. *LEMBRAR DE FAZER LOGOUT E RECONECTAR*
+
+
+### 🔷 9. Login no DockerHub
+```bash
+docker login -u seu usuario
+```
+
+
+### 🔷 10. Rodar container com imagem publicada
+```bash
+docker run -d -p 8080:8080 lucasrainha/motix:2.0
+```
+
+### 🔷 Agora é só acessar algum endpoint da API!
 
 ---
 
