@@ -6,47 +6,31 @@
 </head>
 <body>
 <div class="container">
-    <h1 th:text="${task.id == null ? 'Nova Tarefa' : 'Editar Tarefa'}"></h1>
+    <h1 th:text="${user.id == null ? 'Novo Usuário' : 'Editar Usuário'}"></h1>
 
-    <form th:action="@{/tasks/save}" th:object="${task}" method="post">
+    <form th:action="@{/users/save}" th:object="${users}" method="post">
         <input type="hidden" th:field="*{id}"/>
 
-        <label>Título:</label>
-        <input type="text" th:field="*{title}"/>
-        <span class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+        <label>RM:</label>
+        <input type="text" th:field="*{rm}"/>
+        <span class="error" th:if="${#fields.hasErrors('rm')}" th:errors="*{rm}"></span>
 
-        <label>Descrição:</label>
-        <textarea th:field="*{description}"></textarea>
-        <span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        <label>Nome:</label>
+        <textarea th:field="*{name}"></textarea>
+        <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
 
         <label>Data de Criação:</label>
         <input type="date" th:field="*{creationDate}"/>
         <span class="error" th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}"></span>
 
 
-        <label>Data de Conclusão:</label>
-        <input type="date" th:field="*{completionDate}"/>
-        <span class="error" th:if="${#fields.hasErrors('completionDate')}" th:errors="*{completionDate}"></span>
-
-
-        <label>Prazo:</label>
-        <input type="date" th:field="*{dueDate}"/>
-        <span class="error" th:if="${#fields.hasErrors('dueDate')}" th:errors="*{dueDate}"></span>
-
-
-        <label>Status:</label>
-        <select th:field="*{status}">
-            <option th:each="s : ${statuses}" th:value="${s}" th:text="${s}"></option>
-        </select>
-
-        <label>Prioridade:</label>
-        <select th:field="*{priority}">
-            <option th:each="p : ${priorities}" th:value="${p}" th:text="${p}"></option>
-        </select>
+        <label>Senha:</label>
+        <input type="password" th:field="*{password}"/>
+        <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
 
         <div>
             <button type="button" onclick="confirmarEnvio()">Salvar</button>
-            <a th:href="@{/tasks}">Voltar</a>
+            <a th:href="@{/users}">Voltar</a>
         </div>
     </form>
 </div>

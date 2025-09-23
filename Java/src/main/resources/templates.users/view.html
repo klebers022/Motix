@@ -6,16 +6,13 @@
 </head>
 <body>
 <div class="container">
-    <h1>Tarefa #[[${task.id}]]</h1>
+    <h1>Tarefa #[[${user.id}]]</h1>
     <ul>
-        <li><strong>Título:</strong> <span th:text="${task.title}"></span></li>
-        <li><strong>Descrição:</strong> <span th:text="${task.description}"></span></li>
-        <li><strong>Criada em:</strong> <span th:text="${task.creationDate}"></span></li>
-        <li><strong>Prazo:</strong> <span th:text="${task.dueDate}"></span></li>
-        <li><strong>Status:</strong> <span th:text="${task.status}"></span></li>
-        <li><strong>Prioridade:</strong> <span th:text="${task.priority}"></span></li>
+        <li><strong>RM:</strong> <span th:text="${user.rm}"></span></li>
+        <li><strong>Nome:</strong> <span th:text="${user.name}"></span></li>
+        <li><strong>Senha:</strong> <span th:text="${user.password}"></span></li>
     </ul>
-    <a th:href="@{/tasks}">Voltar</a>
+    <a th:href="@{/users}">Voltar</a>
 </div>
 
 <div id="toast" class="toast-hidden" th:text="${param.success} ?: ''"></div>
