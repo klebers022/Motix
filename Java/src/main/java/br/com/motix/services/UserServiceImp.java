@@ -13,8 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
-@Service
-public class
+@Service public class
 
 UserServiceImp implements UserService {
 
@@ -22,8 +21,8 @@ UserServiceImp implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public Page<User> findAll(Pageable pageable) {
-        return userRepository.findAll(pageable);
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     @Override

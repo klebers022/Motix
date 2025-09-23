@@ -14,7 +14,7 @@ public interface UserService {
     //O usuarios ja estara criado quando o funcionario for utilizar o app que consumira a api
     //Logo apenas GETs foram criados para a autenticacao durante o login e tambem para a exibicao posteriormente
 
-    Page<User> findAll(Pageable pageable);
+    List<User> findAll();
 
     User findById(UUID id);
 
