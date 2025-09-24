@@ -15,13 +15,16 @@ import java.util.UUID;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @GetMapping
-    public String listTasks(Model model){
-        model.addAttribute("users", this.userService.findAll());
-        return "users/list";
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
+    @GetMapping
+    public String listUsers(Model model) {
+        model.addAttribute("users", userService.findAll());
+        return "users/list";
+    }
 }
+

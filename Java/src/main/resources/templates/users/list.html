@@ -7,7 +7,7 @@
 <body>
 <div class="container">
     <h1>Lista de Usuários</h1>
-    <a th:href="@{/users/new}">Novo Usuário</a>
+    <a th:href="@{/templates/users/new}">Novo Usuário</a>
     <table>
         <thead>
         <tr>
@@ -25,9 +25,9 @@
             <td th:text="${user.password}"></td>
             <td>
                 <div class="action-buttons">
-                    <a th:href="@{|/users/view/${user.id}|}">👁️</a>
-                    <a th:href="@{|/users/edit/${user.id}|}">✏️</a>
-                    <a th:href="@{|/users/delete/${user.id}|}" data-confirm="Deseja realmente apagar este usuário?">🗑️</a>
+                    <a th:href="@{|/templates/users/view/${user.id}|}">👁️</a>
+                    <a th:href="@{|/templates/users/edit/${user.id}|}">✏️</a>
+                    <a th:href="@{|/templates/users/delete/${user.id}|}" data-confirm="Deseja realmente apagar este usuário?">🗑️</a>
                 </div>
             </td>
         </tr>
