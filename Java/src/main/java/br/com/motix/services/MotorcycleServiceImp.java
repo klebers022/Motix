@@ -21,13 +21,13 @@ public class MotorcycleServiceImp implements MotorcycleService {
     private MotorcycleRepository bikeRepository;
 
 
-    public Page<Motorcycle> findAll(Pageable pageable) {
-        return bikeRepository.findAll(pageable);
+    public List<Motorcycle> findAll() {
+        return bikeRepository.findAll();
     }
 
     @Override
     public Motorcycle findById(UUID id) {
-        return bikeRepository.findById(id).orElse(null);
+        return bikeRepository.findById(id).orElseThrow(()-> new MotorcycleNotFoundException("Could not find motorcycle with id " + id));
     }
 
     @Override

@@ -1,41 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lista de Usuários</title>
+    <title>Visualizar Usuário</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div class="container">
-    <h1>Lista de Usuários</h1>
-    <a th:href="@{/templates/users/new}">Novo Usuário</a>
-    <table>
-        <thead>
-        <tr>
-            <th>RM</th>
-            <th>Nome</th>
-            <th>Senha</th>
-            <th>Lista de Updates</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="user : ${users}">
-            <td th:text="${user.rm}"></td>
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.password}"></td>
-            <td th:text="${user.updates}"></td>
-            <td>
-                <div class="action-buttons">
-                    <a th:href="@{|/templates/users/view/${user.id}|}">👁️</a>
-                    <a th:href="@{|/templates/users/edit/${user.id}|}">✏️</a>
-                    <a th:href="@{|/templates/users/delete/${user.id}|}" data-confirm="Deseja realmente apagar este usuário?">🗑️</a>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <h1>Usuário #[[${user.id}]]</h1>
+
+    <dl>
+        <dt>RM:</dt>
+        <dd th:text="${user.rm}"></dd>
+
+        <dt>Nome:</dt>
+        <dd th:text="${user.name}"></dd>
+
+        <dt>Senha:</dt>
+        <dd th:text="${user.password}"></dd> <!-- ⚠️ cuidado -->
+    </dl>
+
+    <div class="action-buttons">
+        <a th:href="@{/templates/users}">⬅ Voltar</a>
+        <a th:href="@{|/templates/users/edit/${user.id}|}">✏ Editar</a>
+        <a th:href="@{|/templates/users/delete/${user.id}|}" data-confirm="Deseja realmente apagar este usuário?">🗑 Excluir</a>
+    </div>
 </div>
 
 <div id="toast" class="toast-hidden" th:text="${param.success} ?: ''"></div>
+
+<!-- Só precisa se for usar confirmação -->
 <div id="dialog-overlay" style="display:none;"></div>
 <div id="custom-dialog" style="display:none;">
     <div class="dialog-content">
@@ -74,16 +67,6 @@
                 showCustomDialog(msg, () => window.location.href = href);
             });
         });
-
-        const toast = document.getElementById("toast");
-        if (toast.textContent.trim() !== "") {
-            toast.classList.remove("toast-hidden");
-            toast.classList.add("toast-show");
-            setTimeout(() => {
-                toast.classList.remove("toast-show");
-                toast.classList.add("toast-hidden");
-            }, 3000);
-        }
     });
 </script>
 </body>

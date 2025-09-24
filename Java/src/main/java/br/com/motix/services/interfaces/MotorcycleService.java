@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface MotorcycleService {
 
-    Page<Motorcycle> findAll(Pageable pageable);
+    List<Motorcycle> findAll();
 
     Motorcycle findById(UUID id);
 

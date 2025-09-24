@@ -44,7 +44,7 @@ public class Motorcycle {
     @Getter @Setter
     @Enumerated(EnumType.STRING)
     @Column(length = 15) @NotNull
-    private BikeType type;
+        private BikeType type;
 
     public Motorcycle(UUID id, Sectors sector, String position, String plate, boolean isPlateReadable, BikeType type) {
         this.id = id;

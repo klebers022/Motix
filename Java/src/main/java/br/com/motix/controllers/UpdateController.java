@@ -5,8 +5,11 @@ import br.com.motix.models.Motorcycle;
 import br.com.motix.models.Update;
 import br.com.motix.models.User;
 import br.com.motix.models.dto.UpdateDTO;
+import br.com.motix.services.interfaces.MotorcycleService;
 import br.com.motix.services.interfaces.UpdatesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -14,55 +17,19 @@ import java.util.List;
 import java.util.UUID;
 
 
-@RestController
-@RequestMapping("/updates")
+@Controller
+@RequestMapping("/update")
 public class UpdateController {
 
-    @Autowired
-    private UpdatesService updatesService;
+    private final UpdatesService updatesService;
+
+    public UpdateController(UpdatesService updatesService) {
+        this.updatesService = updatesService;
+    }
 
     @GetMapping
-    public List<UpdateDTO> findAll() {
-        return UpdateDTO.fromEntityList(updatesService.findAll());
-    }
-
-
-    @GetMapping("/user")
-    public List<UpdateDTO> findByUser(
-            @RequestBody User user) {
-        return UpdateDTO.fromEntityList(updatesService.findByUserId(user));
-    }
-
-
-    @GetMapping("/bike")
-    public List<UpdateDTO> findByMotorcycle(
-            @RequestBody Motorcycle motorcycle) {
-        return UpdateDTO.fromEntityList(updatesService.findByMotorcycleId(motorcycle));
-    }
-
-    @GetMapping("/date")
-    public List<UpdateDTO> findByDate(
-            @RequestBody Date date) {
-        return UpdateDTO.fromEntityList(updatesService.findByDate(date));
-    }
-
-    @PutMapping
-    public UpdateDTO updateUpdate(
-            @RequestBody UpdateDTO update) {
-        return UpdateDTO.fromEntity(updatesService.update(update.toEntity()));
-    }
-
-    @PostMapping
-    public UpdateDTO postUpdate(
-            @RequestBody UpdateDTO update) {
-        Update toMap = update.toEntity();
-        Update response = updatesService.post(toMap);
-        return UpdateDTO.fromEntity(response);
-    }
-
-    @DeleteMapping("/{id:[0-9a-fA-F\\-]{36}}")
-    public void deleteUpdate(
-            @PathVariable UUID id) {
-        updatesService.deleteById(id);
+    public String listUpdates(Model model) {
+        model.addAttribute("updates", updatesService.findAll());
+        return "updates/list";
     }
 }

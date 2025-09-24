@@ -1,73 +1,76 @@
 package br.com.motix.controllers;
 
 
+import br.com.motix.exceptions.MotorcycleNotFoundException;
 import br.com.motix.models.Motorcycle;
-import br.com.motix.models.dto.MotorcycleDTO;
+import br.com.motix.models.enums.BikeType;
+import br.com.motix.models.enums.Sectors;
 import br.com.motix.services.interfaces.MotorcycleService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import jakarta.validation.Valid;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
-@RestController
-@RequestMapping("/bikes")
+@Controller
+@RequestMapping("/motorcycles")
 public class MotorcycleController {
 
-    @Autowired
-    private MotorcycleService motorcycleService;
+    private final MotorcycleService motorcycleService;
+
+    public MotorcycleController(MotorcycleService motorcycleService) {
+        this.motorcycleService = motorcycleService;
+    }
 
     @GetMapping
-    public Page<MotorcycleDTO> getAllMotorcycles(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "plate") String sortBy) {
-
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
-
-        return motorcycleService.findAll(pageable)
-                .map(MotorcycleDTO::fromEntity);
+    public String listMotorcycle(Model model) {
+        model.addAttribute("motorcycles", motorcycleService.findAll());
+        return "motorcycles/list";
     }
 
-    @GetMapping("/plate-error")
-    public List<MotorcycleDTO> findAllPlateErrors() {
-        return MotorcycleDTO.fromEntityList(motorcycleService.findAllReadPlatesFalse());
+    @GetMapping("/new")
+    public String showCreateForm( Model model){
+        model.addAttribute("motorclycle", new Motorcycle());
+        model.addAttribute("type", BikeType.values());
+        model.addAttribute("sectors", Sectors.values());
+        return  "motorcycles/form";
     }
 
-    @GetMapping("/id/{id:[0-9a-fA-F\\-]{36}}")
-    public MotorcycleDTO findById(@PathVariable UUID id) {
-        return MotorcycleDTO.fromEntity(motorcycleService.findById(id));
+    @PostMapping("/save")
+    public String saveMotorcycle(@Valid @ModelAttribute("motorcycle") Motorcycle motorcycle,
+                           BindingResult bindingResult, Model model){
+        if (bindingResult.hasErrors()){
+            model.addAttribute("type", BikeType.values());
+            model.addAttribute("sectors", Sectors.values());
+            return "motorcycles/form";
+        }
+        this.motorcycleService.postMotorcycle(motorcycle);
+        return "redirect:/motorcycles";
     }
 
-    @GetMapping("/{plate}")
-    public MotorcycleDTO findByPlate(@PathVariable String plate) {
-        return MotorcycleDTO.fromEntity(motorcycleService.findByPlate(plate));
+    @GetMapping("delete/{id}")
+    public String deleteMotorcycle(@PathVariable("id") UUID  id){
+        this.motorcycleService.deleteMotorcycleById(id);
+        return "redirect:/motorcycles";
     }
 
-    @PutMapping
-    public MotorcycleDTO updateMotorclycle(@RequestBody MotorcycleDTO dto) {
-        return MotorcycleDTO.fromEntity(motorcycleService.updateMotorcycle(dto.toEntity()));
+    @GetMapping("/view/{id}")
+    public String viewMotorcycle(@PathVariable("id") UUID id, Model model){
+        Motorcycle motorcycle = this.motorcycleService.findById(id);
+        model.addAttribute("motorcycle", motorcycle);
+        return "motorcycles/view";
     }
 
-    @PostMapping
-    public MotorcycleDTO postMotorcycle(@RequestBody MotorcycleDTO dto) {
-        Motorcycle toMap = dto.toEntity();
-        Motorcycle response = motorcycleService.postMotorcycle(toMap);
-        return MotorcycleDTO.fromEntity(response);
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable("id") UUID id, Model model){
+        Motorcycle newMotorcycle = this.motorcycleService.findById(id);
+        model.addAttribute("motorcycle", newMotorcycle);
+        model.addAttribute("type", BikeType.values());
+        model.addAttribute("sectors", Sectors.values());
+        return "motorcycles/form";
     }
 
-    @DeleteMapping("/{id:[0-9a-fA-F\\-]{36}}")
-    public void deleteMotocycleById(@PathVariable UUID id) {
-        motorcycleService.deleteMotorcycleById(id);
-    }
-
-    @DeleteMapping("/{plate}")
-    public void deleteMotocycleByPlate(@PathVariable String plate) {
-        motorcycleService.deleteMotorcycleByPlate(plate);
-    }
 }
 

@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lista de Usuários</title>
+    <title>Lista de Updates</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div class="container">
-    <h1>Lista de Usuários</h1>
-    <a th:href="@{/templates/users/new}">Novo Usuário</a>
+    <h1>Lista de Update</h1>
+    <a th:href="@{/templates/updates/new}">Novo Update</a>
     <table>
         <thead>
         <tr>
-            <th>RM</th>
-            <th>Nome</th>
-            <th>Senha</th>
-            <th>Lista de Updates</th>
+            <th>Usuário</th>
+            <th>Moto</th>
+            <th>Data</th>
+            <th>Mensagem</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${users}">
-            <td th:text="${user.rm}"></td>
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.password}"></td>
-            <td th:text="${user.updates}"></td>
+        <tr th:each="update : ${updates}">
+            <td th:text="${update.user.name}"></td>
+            <td th:text="${update.motorcycle.plate}"></td>
+            <td th:text="${update.updateDate}"></td>
+            <td th:text="${update.updateMessage}"></td>
             <td>
                 <div class="action-buttons">
-                    <a th:href="@{|/templates/users/view/${user.id}|}">👁️</a>
-                    <a th:href="@{|/templates/users/edit/${user.id}|}">✏️</a>
-                    <a th:href="@{|/templates/users/delete/${user.id}|}" data-confirm="Deseja realmente apagar este usuário?">🗑️</a>
+                    <a th:href="@{|/templates/updates/view/${update.id}|}">👁️</a>
+                    <a th:href="@{|/templates/updates/edit/${update.id}|}">✏️</a>
+                    <a th:href="@{|/templates/updates/delete/${update.id}|}" data-confirm="Deseja realmente apagar este update?">🗑️</a>
                 </div>
             </td>
         </tr>
