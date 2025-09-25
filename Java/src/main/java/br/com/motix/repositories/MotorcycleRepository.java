@@ -16,11 +16,11 @@ public interface MotorcycleRepository extends JpaRepository<Motorcycle, UUID> {
 
     List<Motorcycle> findAllByType(BikeType type);
 
-    List<Motorcycle> findAllByIsPlateReadableIsFalse();//<------------------------------------------
+    List<Motorcycle> findAllByPlateReadableIsFalse();
 
     Motorcycle findByPlate(String plate);
 
-    boolean existsByPlate(String plate); //<------------------------- Caso haja uma moto ja cadastrada faz um update do setor e da posição
+    boolean existsByPlate(String plate);
 
     void deleteByPlate(String plate);
 

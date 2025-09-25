@@ -10,6 +10,8 @@ import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -25,11 +27,14 @@ public class Motorcycle {
     @Getter @Setter
     private UUID id;
 
+    //Transformar Setor de Enum para um Classe
     @Getter @Setter
     @Enumerated(EnumType.STRING)
     @Column(length = 15) @NotNull
     private Sectors sector;
 
+
+    //Posição vai virar Vaga e virá da classe Setor
     @Getter @Setter
     @Column(length = 10) @NotNull
     private String position;
@@ -39,23 +44,26 @@ public class Motorcycle {
     private String plate;
 
     @Getter @Setter
-    private boolean isPlateReadable;
+    private boolean plateReadable;
 
     @Getter @Setter
     @Enumerated(EnumType.STRING)
     @Column(length = 15) @NotNull
         private BikeType type;
 
-    public Motorcycle(UUID id, Sectors sector, String position, String plate, boolean isPlateReadable, BikeType type) {
+    @OneToMany(mappedBy = "motorcycle", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Update> updates = new ArrayList<>();
+
+    public Motorcycle(UUID id, Sectors sector, String position, String plate, boolean plateReadable, BikeType type) {
         this.id = id;
         this.sector = sector;
         this.position = position;
         readPlate(plate);
-        this.isPlateReadable = isPlateReadable;
+        this.plateReadable = plateReadable;
         this.type = type;
     }
 
-    public String readPlate(String plate) {   //<------------------------------------------------
+    public String readPlate(String plate) {
         if (plate != null) {
             setPlateReadable(true);
             return this.plate = plate;
@@ -77,4 +85,16 @@ public class Motorcycle {
         return Objects.hashCode(id);
     }
 
+    @Override
+    public String toString() {
+        return "Motorcycle{" +
+                "id=" + id +
+                ", sector=" + sector +
+                ", position='" + position + '\'' +
+                ", plate='" + plate + '\'' +
+                ", plateReadable=" + plateReadable +
+                ", type=" + type +
+                ", updates=" + updates +
+                '}';
+    }
 }

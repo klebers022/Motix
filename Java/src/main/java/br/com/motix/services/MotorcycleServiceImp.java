@@ -37,7 +37,7 @@ public class MotorcycleServiceImp implements MotorcycleService {
 
     @Override
     public List<Motorcycle> findAllReadPlatesFalse() {
-        return bikeRepository.findAllByIsPlateReadableIsFalse();
+        return bikeRepository.findAllByPlateReadableIsFalse();
     }
 
     @Override

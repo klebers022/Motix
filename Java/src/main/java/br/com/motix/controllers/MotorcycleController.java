@@ -31,22 +31,24 @@ public class MotorcycleController {
     }
 
     @GetMapping("/new")
-    public String showCreateForm( Model model){
-        model.addAttribute("motorclycle", new Motorcycle());
+    public String showCreateForm(Model model) {
+        model.addAttribute("motorcycle", new Motorcycle());
         model.addAttribute("type", BikeType.values());
         model.addAttribute("sectors", Sectors.values());
-        return  "motorcycles/form";
+        return "motorcycles/form";
     }
 
     @PostMapping("/save")
     public String saveMotorcycle(@Valid @ModelAttribute("motorcycle") Motorcycle motorcycle,
-                           BindingResult bindingResult, Model model){
-        if (bindingResult.hasErrors()){
+                                 BindingResult bindingResult, Model model) {
+        System.out.println("motorcycle: " + motorcycle);
+        if (bindingResult.hasErrors()) {
             model.addAttribute("type", BikeType.values());
             model.addAttribute("sectors", Sectors.values());
             return "motorcycles/form";
         }
         this.motorcycleService.postMotorcycle(motorcycle);
+        System.out.println("RICARDO SAFADO");
         return "redirect:/motorcycles";
     }
 
