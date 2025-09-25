@@ -12,7 +12,7 @@ import java.util.UUID;
 public interface UpdatesService {
     List<Update> findAll();
 
-    Optional<Update> findAllById(UUID id);
+    Update findAllById(UUID id);
 
     List<Update> findByUserId(User user);
 

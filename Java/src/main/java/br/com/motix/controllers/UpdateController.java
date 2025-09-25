@@ -52,14 +52,14 @@ public class UpdateController {
 
     @GetMapping("/view/{id}")
     public String viewUpdateByUserId(@PathVariable("id") UUID id, Model model){
-        Optional<Update> update = this.updatesService.findAllById(id);
+       Update update = this.updatesService.findAllById(id);
         model.addAttribute("update", update);
         return "updates/view";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") UUID id, Model model){
-        Optional<Update> newUpdate = this.updatesService.findAllById(id);
+        Update newUpdate = this.updatesService.findAllById(id);
         model.addAttribute("update", newUpdate);
         return "updates/form";
     }

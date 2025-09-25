@@ -36,8 +36,8 @@ public class UpdateServiceImp implements UpdatesService {
     }
 
     @Override
-    public Optional<Update> findAllById(UUID id) {
-        return updateRepository.findById(id);
+    public Update findAllById(UUID id) {
+        return updateRepository.findById(id).orElseThrow(() -> new UpdateNotFoundException());
     }
 
 

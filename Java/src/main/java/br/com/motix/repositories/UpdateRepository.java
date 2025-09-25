@@ -16,8 +16,6 @@ public interface UpdateRepository extends JpaRepository<Update, UUID> {
 
     List<Update> findAll();
 
-    Optional<Update> findById(UUID id);
-
     List<Update> findAllByUser(User user);
 
     List<Update> findAllByMotorcycle(Motorcycle motorcycle);
