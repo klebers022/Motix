@@ -27,19 +27,19 @@ public class Motorcycle {
     @Getter @Setter
     private UUID id;
 
-    //Transformar Setor de Enum para um Classe
+    //******************************Transformar Setor de Enum para um Classe
     @Getter @Setter
     @Enumerated(EnumType.STRING)
     @Column(length = 15) @NotNull
     private Sectors sector;
 
 
-    //Posição vai virar Vaga e virá da classe Setor
+    //*****************************Posição vai virar Vaga e virá da classe Setor
     @Getter @Setter
     @Column(length = 10) @NotNull
     private String position;
 
-    @Getter @Setter//<---------------------------------------------------
+    @Getter @Setter
     @Column(length = 10, unique = true) @NotNull
     private String plate;
 

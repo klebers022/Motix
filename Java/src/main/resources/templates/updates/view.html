@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Visualizar Usuário</title>
+    <title>Visualizar Update</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div class="container">
-    <h1>Usuário #[[${user.id}]]</h1>
+    <h1>Update [[${update.user.name}]]</h1>
 
     <dl>
-        <dt>RM:</dt>
-        <dd th:text="${user.rm}"></dd>
+        <dt>Nome do Usuário:</dt>
+        <dd th:text="${update.user.name}"></dd>
 
-        <dt>Nome:</dt>
-        <dd th:text="${user.name}"></dd>
+        <dt>Placa da Moto:</dt>
+        <dd th:text="${update.motorcycle.plate}"></dd>
 
-        <dt>Senha:</dt>
-        <dd th:text="${user.password}"></dd> <!-- ⚠️ cuidado -->
+        <dt>Data do Update:</dt>
+        <dd th:text="${update.updateDate}"></dd>
+
+        <dt>Mensagem:</dt>
+        <dd th:text="${update.updateMessage}"></dd>
     </dl>
 
     <div class="action-buttons">
-        <a th:href="@{/templates/users}">⬅ Voltar</a>
-        <a th:href="@{|/templates/users/edit/${user.id}|}">✏ Editar</a>
-        <a th:href="@{|/templates/users/delete/${user.id}|}" data-confirm="Deseja realmente apagar este usuário?">🗑 Excluir</a>
+        <a th:href="@{/updates}">⬅ Voltar</a>
+        <a th:href="@{|/updates/edit/${update.id}|}">✏ Editar</a>
+        <a th:href="@{|/updates/delete/${update.id}|}" data-confirm="Deseja realmente apagar esta update?">🗑 Excluir</a>
     </div>
 </div>
 
 <div id="toast" class="toast-hidden" th:text="${param.success} ?: ''"></div>
 
-<!-- Só precisa se for usar confirmação -->
 <div id="dialog-overlay" style="display:none;"></div>
 <div id="custom-dialog" style="display:none;">
     <div class="dialog-content">

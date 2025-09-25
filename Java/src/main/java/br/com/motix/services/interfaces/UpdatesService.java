@@ -6,10 +6,13 @@ import br.com.motix.models.User;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface UpdatesService {
     List<Update> findAll();
+
+    Optional<Update> findAllById(UUID id);
 
     List<Update> findByUserId(User user);
 

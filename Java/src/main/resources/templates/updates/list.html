@@ -7,7 +7,7 @@
 <body>
 <div class="container">
     <h1>Lista de Update</h1>
-    <a th:href="@{/templates/updates/new}">Novo Update</a>
+    <a th:href="@{/updates/new}">Novo Update</a>
     <table>
         <thead>
         <tr>
@@ -25,9 +25,9 @@
             <td th:text="${update.updateMessage}"></td>
             <td>
                 <div class="action-buttons">
-                    <a th:href="@{|/templates/updates/view/${update.id}|}">👁️</a>
-                    <a th:href="@{|/templates/updates/edit/${update.id}|}">✏️</a>
-                    <a th:href="@{|/templates/updates/delete/${update.id}|}" data-confirm="Deseja realmente apagar este update?">🗑️</a>
+                    <a th:href="@{|/updates/view/${update.id}|}">👁️</a>
+                    <a th:href="@{|/updates/edit/${update.id}|}">✏️</a>
+                    <a th:href="@{|/updates/delete/${update.id}|}" data-confirm="Deseja realmente apagar este update?">🗑️</a>
                 </div>
             </td>
         </tr>

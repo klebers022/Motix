@@ -6,39 +6,37 @@
 </head>
 <body>
 <div class="container">
-    <h1 th:text="${user.id == null ? 'Novo Usuário' : 'Editar Usuário'}"></h1>
+    <h1 th:text="${update.id == null ? 'Novo Update' : 'Editar Update'}"></h1>
 
-    <form th:action="@{/templates/users/save}" th:object="${users}" method="post">
+    <form th:action="@{/updates/save}" th:object="${update}" method="post">
         <input type="hidden" th:field="*{id}"/>
 
-        <label>RM:</label>
-        <input type="text" th:field="*{rm}"/>
-        <span class="error" th:if="${#fields.hasErrors('rm')}" th:errors="*{rm}"></span>
+        <label>Nome do Usuário:</label>
+        <input type="text" th:field="*{user}"/>
+        <span class="error" th:if="${#fields.hasErrors('user')}" th:errors="*{user}"></span>
 
-        <label>Nome:</label>
-        <textarea th:field="*{name}"></textarea>
-        <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <label>Placa da Moto:</label>
+        <textarea th:field="*{motorcycle}"></textarea>
+        <span class="error" th:if="${#fields.hasErrors('motorcycle')}" th:errors="*{motorcycle}"></span>
 
         <label>Data de Criação:</label>
-        <input type="date" th:field="*{creationDate}"/>
-        <span class="error" th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}"></span>
+        <input type="date" th:field="*{updateDate}"/>
+        <span class="error" th:if="${#fields.hasErrors('updateDate')}" th:errors="*{updateDate}"></span>
 
 
         <label>Senha:</label>
-        <input type="password" th:field="*{password}"/>
-        <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        <input type="text" th:field="*{updateMessage}"/>
+        <span class="error" th:if="${#fields.hasErrors('updateMessage')}" th:errors="*{updateMessage}"></span>
 
         <div>
             <button type="button" onclick="confirmarEnvio()">Salvar</button>
-            <a th:href="@{/templates/users}">Voltar</a>
+            <a th:href="@{/updates}">Voltar</a>
         </div>
     </form>
 </div>
 
-<!-- Toast -->
 <div id="toast" class="toast-hidden" th:text="${param.success} ?: ''"></div>
 
-<!-- Caixa de diálogo personalizada -->
 <div id="dialog-overlay" style="display:none;"></div>
 <div id="custom-dialog" style="display:none;">
     <div class="dialog-content">
@@ -73,7 +71,7 @@ function closeDialog() {
 }
 
 function confirmarEnvio() {
-    showCustomDialog("Deseja realmente salvar esta tarefa?", () => {
+    showCustomDialog("Deseja realmente salvar este Update?", () => {
         document.querySelector("form").submit();
     });
 }

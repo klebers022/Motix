@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -32,6 +33,11 @@ public class UpdateServiceImp implements UpdatesService {
     @Override
     public List<Update> findAll() {
         return updateRepository.findAll();
+    }
+
+    @Override
+    public Optional<Update> findAllById(UUID id) {
+        return updateRepository.findById(id);
     }
 
 

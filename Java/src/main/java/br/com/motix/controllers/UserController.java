@@ -1,11 +1,16 @@
 package br.com.motix.controllers;
 
+import br.com.motix.models.Motorcycle;
 import br.com.motix.models.User;
 import br.com.motix.models.dto.UserDTO;
+import br.com.motix.models.enums.BikeType;
+import br.com.motix.models.enums.Sectors;
 import br.com.motix.services.interfaces.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +30,44 @@ public class UserController {
     public String listUsers(Model model) {
         model.addAttribute("users", userService.findAll());
         return "users/list";
+    }
+
+    @GetMapping("/new")
+    public String showCreateForm(Model model) {
+        model.addAttribute("motorcycle", new Motorcycle());
+        model.addAttribute("type", BikeType.values());
+        model.addAttribute("sectors", Sectors.values());
+        return "users/form";
+    }
+
+    @PostMapping("/save")
+    public String saveUser(@Valid @ModelAttribute("user") User user,
+                                 BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "users/form";
+        }
+        this.userService.postUser(user);
+        return "redirect:/users";
+    }
+
+    @GetMapping("delete/{id}")
+    public String deleteUser(@PathVariable("id") UUID  id){
+        this.userService.deleteUserById(id);
+        return "redirect:/users";
+    }
+
+    @GetMapping("/view/{id}")
+    public String viewUser(@PathVariable("id") UUID id, Model model){
+        User user = this.userService.findById(id);
+        model.addAttribute("user", user);
+        return "users/view";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable("id") UUID id, Model model){
+        User newUser = this.userService.findById(id);
+        model.addAttribute("user", newUser);
+        return "users/form";
     }
 }
 
