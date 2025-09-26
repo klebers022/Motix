@@ -1,28 +1,25 @@
-package br.com.motix.controllers;
+package br.com.motix.controllers.view;
 
 import br.com.motix.models.Motorcycle;
 import br.com.motix.models.User;
-import br.com.motix.models.dto.UserDTO;
 import br.com.motix.models.enums.BikeType;
 import br.com.motix.models.enums.Sectors;
 import br.com.motix.services.interfaces.UserService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @Controller
 @RequestMapping("/users")
-public class UserController {
+public class UserViewController {
 
     private final UserService userService;
 
-    public UserController(UserService userService) {
+    public UserViewController(UserService userService) {
         this.userService = userService;
     }
 
@@ -34,9 +31,7 @@ public class UserController {
 
     @GetMapping("/new")
     public String showCreateForm(Model model) {
-        model.addAttribute("motorcycle", new Motorcycle());
-        model.addAttribute("type", BikeType.values());
-        model.addAttribute("sectors", Sectors.values());
+        model.addAttribute("user", new User());
         return "users/form";
     }
 

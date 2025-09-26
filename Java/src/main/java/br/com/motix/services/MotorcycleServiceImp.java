@@ -20,10 +20,11 @@ public class MotorcycleServiceImp implements MotorcycleService {
     @Autowired
     private MotorcycleRepository bikeRepository;
 
-
     public List<Motorcycle> findAll() {
         return bikeRepository.findAll();
     }
+
+    public Page<Motorcycle> findAllPageable(Pageable pageable) {return bikeRepository.findAll(pageable);}
 
     @Override
     public Motorcycle findById(UUID id) {

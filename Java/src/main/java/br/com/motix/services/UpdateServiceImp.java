@@ -2,6 +2,7 @@ package br.com.motix.services;
 
 import br.com.motix.exceptions.ExistingUpdateErrorException;
 import br.com.motix.exceptions.MotorcycleNotFoundException;
+import br.com.motix.exceptions.UpdateNotFoundException;
 import br.com.motix.models.Motorcycle;
 import br.com.motix.models.Update;
 import br.com.motix.models.User;
@@ -37,7 +38,7 @@ public class UpdateServiceImp implements UpdatesService {
 
     @Override
     public Update findAllById(UUID id) {
-        return updateRepository.findById(id).orElseThrow(() -> new UpdateNotFoundException());
+        return updateRepository.findById(id).orElseThrow(() -> new UpdateNotFoundException("No update found with id " + id));
     }
 
 

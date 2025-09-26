@@ -1,7 +1,6 @@
-package br.com.motix.controllers;
+package br.com.motix.controllers.view;
 
 
-import br.com.motix.exceptions.MotorcycleNotFoundException;
 import br.com.motix.models.Motorcycle;
 import br.com.motix.models.enums.BikeType;
 import br.com.motix.models.enums.Sectors;
@@ -16,11 +15,11 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("/motorcycles")
-public class MotorcycleController {
+public class MotorcycleViewController {
 
     private final MotorcycleService motorcycleService;
 
-    public MotorcycleController(MotorcycleService motorcycleService) {
+    public MotorcycleViewController(MotorcycleService motorcycleService) {
         this.motorcycleService = motorcycleService;
     }
 

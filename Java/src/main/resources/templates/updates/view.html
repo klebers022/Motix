@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Update [[${update.user.name}]]</h1>
+    <h1>Relatório [[${update.id}]]</h1>
 
     <dl>
         <dt>Nome do Usuário:</dt>
@@ -25,7 +25,7 @@
     <div class="action-buttons">
         <a th:href="@{/updates}">⬅ Voltar</a>
         <a th:href="@{|/updates/edit/${update.id}|}">✏ Editar</a>
-        <a th:href="@{|/updates/delete/${update.id}|}" data-confirm="Deseja realmente apagar esta update?">🗑 Excluir</a>
+        <a th:href="@{|/updates/delete/${update.id}|}" data-confirm="Deseja realmente apagar este relatório?">🗑 Excluir</a>
     </div>
 </div>
 

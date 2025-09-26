@@ -11,6 +11,8 @@ public interface MotorcycleService {
 
     List<Motorcycle> findAll();
 
+    Page<Motorcycle> findAllPageable(Pageable pageable);
+
     Motorcycle findById(UUID id);
 
     Motorcycle findByPlate(String plate);

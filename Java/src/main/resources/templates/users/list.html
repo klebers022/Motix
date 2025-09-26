@@ -13,7 +13,6 @@
         <tr>
             <th>RM</th>
             <th>Nome</th>
-            <th>Senha</th>
             <th>Lista de Updates</th>
         </tr>
         </thead>
@@ -21,7 +20,6 @@
         <tr th:each="user : ${users}">
             <td th:text="${user.rm}"></td>
             <td th:text="${user.name}"></td>
-            <td th:text="${user.password}"></td>
             <td th:text="${user.updates}"></td>
             <td>
                 <div class="action-buttons">

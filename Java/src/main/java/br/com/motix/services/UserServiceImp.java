@@ -6,6 +6,8 @@ import br.com.motix.models.User;
 import br.com.motix.repositories.UserRepository;
 import br.com.motix.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +28,11 @@ UserServiceImp implements UserService {
     @Override
     public User findById(UUID id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Page<User> findAllPageable(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 
     @Override

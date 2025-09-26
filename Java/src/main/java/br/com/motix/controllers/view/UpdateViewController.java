@@ -1,4 +1,4 @@
-package br.com.motix.controllers;
+package br.com.motix.controllers.view;
 
 
 import br.com.motix.models.Update;
@@ -9,17 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 import java.util.UUID;
 
 
 @Controller
 @RequestMapping("/updates")
-public class UpdateController {
+public class UpdateViewController {
 
     private final UpdatesService updatesService;
 
-    public UpdateController(UpdatesService updatesService) {
+    public UpdateViewController(UpdatesService updatesService) {
         this.updatesService = updatesService;
     }
 

@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Cadastro de Tarefa</title>
+    <title>Cadastro de Relatório</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div class="container">
-    <h1 th:text="${update.id == null ? 'Novo Update' : 'Editar Update'}"></h1>
+    <h1 th:text="${update.id == null ? 'Novo Relatório' : 'Editar Relatório'}"></h1>
 
     <form th:action="@{/updates/save}" th:object="${update}" method="post">
         <input type="hidden" th:field="*{id}"/>
 
-        <label>Nome do Usuário:</label>
-        <input type="text" th:field="*{user}"/>
-        <span class="error" th:if="${#fields.hasErrors('user')}" th:errors="*{user}"></span>
+        <label>ID do Usuário:</label>
+        <input type="text" th:field="*{user.id}"/>
+        <span class="error" th:if="${#fields.hasErrors('user.id')}" th:errors="*{user.id}"></span>
 
-        <label>Placa da Moto:</label>
-        <textarea th:field="*{motorcycle}"></textarea>
-        <span class="error" th:if="${#fields.hasErrors('motorcycle')}" th:errors="*{motorcycle}"></span>
+        <label>ID da Moto:</label>
+        <input type="text" th:field="*{motorcycle.id}"></input>
+        <span class="error" th:if="${#fields.hasErrors('motorcycle.id')}" th:errors="*{motorcycle.id}"></span>
 
         <label>Data de Criação:</label>
         <input type="date" th:field="*{updateDate}"/>
         <span class="error" th:if="${#fields.hasErrors('updateDate')}" th:errors="*{updateDate}"></span>
 
 
-        <label>Senha:</label>
+        <label>Mensagem:</label>
         <input type="text" th:field="*{updateMessage}"/>
         <span class="error" th:if="${#fields.hasErrors('updateMessage')}" th:errors="*{updateMessage}"></span>
 
@@ -71,7 +71,7 @@ function closeDialog() {
 }
 
 function confirmarEnvio() {
-    showCustomDialog("Deseja realmente salvar este Update?", () => {
+    showCustomDialog("Deseja realmente salvar este Relatório?", () => {
         document.querySelector("form").submit();
     });
 }
