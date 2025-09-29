@@ -1,7 +1,7 @@
 package br.com.motix.models;
 
 import br.com.motix.models.enums.BikeType;
-import br.com.motix.models.enums.Sectors;
+
 import jakarta.persistence.*;
 
 import jakarta.persistence.Table;
@@ -27,17 +27,10 @@ public class Motorcycle {
     @Getter @Setter
     private UUID id;
 
-    //******************************Transformar Setor de Enum para um Classe
+    @ManyToOne
+    @JoinColumn(name = "sector_id", nullable = false)
     @Getter @Setter
-    @Enumerated(EnumType.STRING)
-    @Column(length = 15) @NotNull
-    private Sectors sector;
-
-
-    //*****************************Posição vai virar Vaga e virá da classe Setor
-    @Getter @Setter
-    @Column(length = 10) @NotNull
-    private String position;
+    private Sector sector;
 
     @Getter @Setter
     @Column(length = 10, unique = true) @NotNull
@@ -54,10 +47,9 @@ public class Motorcycle {
     @OneToMany(mappedBy = "motorcycle", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Update> updates = new ArrayList<>();
 
-    public Motorcycle(UUID id, Sectors sector, String position, String plate, boolean plateReadable, BikeType type) {
+    public Motorcycle(UUID id, Sector sector, String plate, boolean plateReadable, BikeType type) {
         this.id = id;
         this.sector = sector;
-        this.position = position;
         readPlate(plate);
         this.plateReadable = plateReadable;
         this.type = type;
@@ -90,7 +82,6 @@ public class Motorcycle {
         return "Motorcycle{" +
                 "id=" + id +
                 ", sector=" + sector +
-                ", position='" + position + '\'' +
                 ", plate='" + plate + '\'' +
                 ", plateReadable=" + plateReadable +
                 ", type=" + type +

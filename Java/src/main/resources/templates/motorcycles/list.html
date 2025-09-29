@@ -13,7 +13,6 @@
         <tr>
             <th>Placa</th>
             <th>Setor</th>
-            <th>Vaga</th>
             <th>Tipo</th>
             <th>Legibilidade da Placa</th>
         </tr>
@@ -21,8 +20,7 @@
         <tbody>
         <tr th:each="motorcycle : ${motorcycles}">
             <td th:text="${motorcycle.plate}"></td>
-            <td th:text="${motorcycle.sector}"></td>
-            <td th:text="${motorcycle.position}"></td>
+            <td th:text="${motorcycle.sector.getName()}"></td>
             <td th:text="${motorcycle.type}"></td>
             <td th:text="${motorcycle.isPlateReadable}"></td>
             <td>

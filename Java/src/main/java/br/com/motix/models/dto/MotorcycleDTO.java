@@ -1,8 +1,9 @@
 package br.com.motix.models.dto;
 
 import br.com.motix.models.Motorcycle;
+import br.com.motix.models.Sector;
+import br.com.motix.models.Spot;
 import br.com.motix.models.enums.BikeType;
-import br.com.motix.models.enums.Sectors;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
@@ -11,6 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @NoArgsConstructor
@@ -18,7 +20,7 @@ public class MotorcycleDTO extends Motorcycle {
 
     @NotNull
     @Getter @Setter
-    private Sectors sector;
+    private Sector sector;
 
     @NotNull
     @Getter @Setter
@@ -36,17 +38,16 @@ public class MotorcycleDTO extends Motorcycle {
     @Getter @Setter
     private boolean isPlateReadable;
 
-    public MotorcycleDTO(Sectors sector, String position, String plate, BikeType type, boolean isPlateReadable) {
+    public MotorcycleDTO(Sector sector, String plate, BikeType type, boolean isPlateReadable) {
         this.sector = sector;
-        this.position = position;
         this.type = type;
         this.plate = plate;
         this.isPlateReadable = isPlateReadable;
     }
 
 
-    public Motorcycle toEntity() {   //<----------------------------Metodos usados na Controller para converter a DTO
-        Motorcycle motorcycle = new Motorcycle(null, this.sector, this.position, this.plate, false, this.type);
+    public Motorcycle toEntity() {
+        Motorcycle motorcycle = new Motorcycle(null, this.sector, this.plate, false, this.type);
         if (this.plate != null) motorcycle.setPlateReadable(this.isPlateReadable);
         return motorcycle;
     }
@@ -56,7 +57,6 @@ public class MotorcycleDTO extends Motorcycle {
 
         return new MotorcycleDTO(
                 motorcycle.getSector(),
-                motorcycle.getPosition(),
                 motorcycle.getPlate(),
                 motorcycle.getType(),
                 motorcycle.isPlateReadable()

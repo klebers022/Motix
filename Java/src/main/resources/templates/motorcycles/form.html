@@ -19,10 +19,6 @@
         <textarea id="sector" th:field="*{sector}"></textarea>
         <span class="error" th:if="${#fields.hasErrors('sector')}" th:errors="*{sector}"></span>
 
-        <label for="position">Posição:</label>
-        <textarea id="position" th:field="*{position}"></textarea>
-        <span class="error" th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></span>
-
         <label for="type">Tipo:</label>
         <input type="text" id="type" th:field="*{type}" />
         <span class="error" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>

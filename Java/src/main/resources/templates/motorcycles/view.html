@@ -8,8 +8,7 @@
 <div class="container">
     <h1>[[${motorcycle.plate}]]</h1>
     <ul>
-        <li><strong>Setor:</strong> <span th:text="${motorcycle.sector}"></span></li>
-        <li><strong>Posição:</strong> <span th:text="${motorcycle.position}"></span></li>
+        <li><strong>Setor:</strong> <span th:text="${motorcycle.sector.getName()}"></span></li>
         <li><strong>Tipo:</strong> <span th:text="${motorcycle.type}"></span></li>
         <li><strong>Legibilidade:</strong> <span th:text="${motorcycle.isPlateReadable}"></span></li>
     </ul>
