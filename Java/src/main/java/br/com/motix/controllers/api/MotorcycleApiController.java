@@ -16,7 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/motorcycles")
+@RequestMapping("/api/bikes")
 public class MotorcycleApiController {
 
     @Autowired

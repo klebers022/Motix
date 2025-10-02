@@ -27,7 +27,7 @@ public class UserDTO{
     private List<UpdateDTO> updates;
 
 
-    public User toEntity() {
+    public User toEntity() {   //<----------------------------Metodos usados na Controller para converter a DTO
         return new User(null, this.rm, this.password, this.name, this.updates.stream().map(UpdateDTO::toEntity).toList());
     }
 
