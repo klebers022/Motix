@@ -1,20 +1,23 @@
-# ===== Stage de build =====
 FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# Copia o projeto inteiro
-COPY . .
+COPY pom.xml .
+RUN mvn -B -e -X -DskipTests dependency:go-offline
 
-# Compila e gera o JAR empacotado do Spring Boot (pula testes)
+
+COPY src ./src
 RUN mvn -B -e -DskipTests package spring-boot:repackage
 
-# ===== Stage de runtime =====
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-# Copia o JAR gerado do estágio de build
+# Usuário não-root
+RUN useradd -r -u 1001 appuser
+USER appuser
+
 COPY --from=build /app/target/*.jar /app/app.jar
 
 EXPOSE 8080
+ENV JAVA_OPTS=""
 
-ENTRYPOINT ["java","-jar","/app/app.jar"]
+ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar /app/app.jar"]
